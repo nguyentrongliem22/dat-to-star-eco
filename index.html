@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đất Tổ Star Eco - Xanh Hóa Tương Lai Việt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --green-dark: #1a3c2a;
+            --green-primary: #2d6a4f;
+            --green-medium: #40916c;
+            --green-light: #52b788;
+            --green-pale: #b7e4c7;
+            --green-bg: #d8f3dc;
+            --cream: #f5f0e8;
+            --brown: #8b6914;
+            --brown-light: #c49a3c;
+            --brown-dark: #5c4a1e;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-gray: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* ========== PRELOADER ========== */
+        .preloader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--green-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .preloader-leaf {
+            width: 60px; height: 60px;
+            border: 4px solid var(--green-pale);
+            border-top-color: var(--green-light);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            padding: 18px 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(26, 60, 42, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 12px 60px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .nav-logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--green-light), var(--green-medium));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        .nav-logo-text span {
+            color: var(--green-light);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
+            background: var(--green-light);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--green-light);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-cta {
+            background: linear-gradient(135deg, var(--green-light), var(--green-medium));
+            color: var(--white) !important;
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-weight: 600 !important;
+            transition: transform 0.3s, box-shadow 0.3s !important;
+        }
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(82, 183, 136, 0.4);
+        }
+        .nav-cta::after { display: none !important; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .hamburger span {
+            width: 28px; height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--green-dark) 0%, #0d2818 50%, #1a3c2a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg-pattern {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(82,183,136,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(45,106,79,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(183,228,199,0.05) 0%, transparent 70%);
+        }
+        .hero-floating {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.08;
+            animation: floatUp 20s infinite linear;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.08; }
+            90% { opacity: 0.08; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 0 20px;
+            max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(82, 183, 136, 0.15);
+            border: 1px solid rgba(82, 183, 136, 0.3);
+            padding: 8px 24px;
+            border-radius: 30px;
+            color: var(--green-pale);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease 0.3s both;
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease 0.5s both;
+        }
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--green-light), #74d4a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-slogan {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: var(--brown-light);
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease 0.7s both;
+        }
+        .hero-desc {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            max-width: 650px;
+            margin: 0 auto 40px;
+            animation: fadeInDown 1s ease 0.9s both;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInDown 1s ease 1.1s both;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--green-light), var(--green-medium));
+            color: var(--white);
+            padding: 16px 42px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(82, 183, 136, 0.35);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 42px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-outline:hover {
+            border-color: var(--green-light);
+            color: var(--green-light);
+            transform: translateY(-3px);
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            animation: fadeInDown 1s ease 1.3s both;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--green-light);
+        }
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 5px;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== SECTION COMMON ========== */
+        .section {
+            padding: 100px 60px;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .section-tag {
+            display: inline-block;
+            background: var(--green-bg);
+            color: var(--green-primary);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--green-dark);
+            margin-bottom: 15px;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about {
+            background: var(--white);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-images {
+            position: relative;
+            height: 500px;
+        }
+        .about-img-main {
+            width: 380px;
+            height: 450px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
+        }
+        .about-img-secondary {
+            width: 250px;
+            height: 300px;
+            border-radius: 20px;
+            object-fit: cover;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 3;
+            border: 5px solid var(--white);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .about-decoration {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 120px;
+            height: 120px;
+            border: 3px solid var(--green-light);
+            border-radius: 20px;
+            z-index: 1;
+        }
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--green-dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .about-text h3 span {
+            color: var(--green-medium);
+        }
+        .about-text p {
+            color: var(--text-gray);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .about-feature-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--green-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-primary);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .about-feature span {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* ========== WHY SECTION ========== */
+        .why-section {
+            background: linear-gradient(180deg, var(--green-bg) 0%, var(--cream) 100%);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+        }
+        .why-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 45px 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(45,106,79,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--green-light), var(--green-medium));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+        .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(45, 106, 79, 0.12);
+        }
+        .why-card:hover::before {
+            transform: scaleX(1);
+        }
+        .why-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--green-bg), rgba(82,183,136,0.15));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--green-primary);
+            transition: all 0.4s;
+        }
+        .why-card:hover .why-icon {
+            background: linear-gradient(135deg, var(--green-light), var(--green-medium));
+            color: var(--white);
+            transform: scale(1.1);
+        }
+        .why-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            color: var(--green-dark);
+            margin-bottom: 15px;
+        }
+        .why-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ========== PRODUCTS SECTION ========== */
+        .products {
+            background: var(--white);
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+        }
+        .product-card {
+            border-radius: 24px;
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+        }
+        .product-img-wrapper {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .product-card:hover .product-img-wrapper img {
+            transform: scale(1.08);
+        }
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, var(--green-light), var(--green-medium));
+            color: var(--white);
+            padding: 5px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .product-info {
+            padding: 28px;
+        }
+        .product-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--green-dark);
+            margin-bottom: 10px;
+        }
+        .product-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+        .product-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .product-tag {
+            background: var(--green-bg);
+            color: var(--green-primary);
+            padding: 4px 14px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ========== PROCESS SECTION ========== */
+        .process {
+            background: linear-gradient(135deg, var(--green-dark) 0%, #0d2818 100%);
+            color: var(--white);
+        }
+        .process .section-tag {
+            background: rgba(82, 183, 136, 0.15);
+            color: var(--green-light);
+        }
+        .process .section-title {
+            color: var(--white);
+        }
+        .process .section-subtitle {
+            color: rgba(255,255,255,0.6);
+        }
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+        }
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 55px;
+            left: 12.5%;
+            width: 75%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--green-light), var(--green-medium), var(--green-light));
+            opacity: 0.3;
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--green-light), var(--green-medium));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+        .process-step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .process-step h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--green-pale);
+        }
+        .process-step p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ========== GALLERY SECTION ========== */
+        .gallery {
+            background: var(--cream);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            height: 280px;
+        }
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            height: 350px;
+        }
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+            height: 350px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%;
+            padding: 30px 20px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.4s;
+        }
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        .gallery-overlay h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+
+        /* ========== IMPACT SECTION ========== */
+        .impact {
+            background: var(--white);
+        }
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 35px;
+        }
+        .impact-card {
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--green-bg), rgba(183,228,199,0.3));
+            transition: all 0.4s;
+        }
+        .impact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(45,106,79,0.12);
+        }
+        .impact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .impact-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--green-primary);
+            margin-bottom: 8px;
+        }
+        .impact-label {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials {
+            background: linear-gradient(180deg, var(--cream), var(--green-bg));
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+        }
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            transition: all 0.4s;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+        .testimonial-quote {
+            font-size: 3rem;
+            color: var(--green-light);
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+        .testimonial-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green-light), var(--green-medium));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--green-dark);
+            font-size: 0.95rem;
+        }
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--green-dark), var(--green-primary));
+            text-align: center;
+            padding: 100px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(82,183,136,0.1) 0%, transparent 50%);
+            animation: ctaPulse 8s ease-in-out infinite;
+        }
+        @keyframes ctaPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-white {
+            background: var(--white);
+            color: var(--green-dark);
+            padding: 16px 42px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.2);
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        .contact {
+            background: var(--white);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--green-dark);
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--green-bg);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-primary);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .contact-item-text h5 {
+            font-weight: 600;
+            color: var(--green-dark);
+            margin-bottom: 3px;
+        }
+        .contact-item-text p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .contact-form {
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 45px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--green-dark);
+            margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 20px;
+            border: 2px solid rgba(45,106,79,0.1);
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+            background: var(--white);
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green-light);
+        }
+        .form-group textarea {
+            height: 130px;
+            resize: vertical;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--green-light), var(--green-medium));
+            color: var(--white);
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(82, 183, 136, 0.3);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--green-dark);
+            color: var(--white);
+            padding: 80px 60px 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .footer-brand h3 span {
+            color: var(--green-light);
+        }
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .footer-social a:hover {
+            background: var(--green-light);
+            border-color: var(--green-light);
+            transform: translateY(-3px);
+        }
+        .footer-col h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--green-pale);
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer-col ul li a:hover {
+            color: var(--green-light);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        /* ========== SCROLL ANIMATIONS ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== BACK TO TOP ========== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--green-light), var(--green-medium));
+            border: none;
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(82, 183, 136, 0.3);
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .section { padding: 70px 40px; }
+            .navbar { padding: 15px 30px; }
+            .navbar.scrolled { padding: 10px 30px; }
+            .hero-title { font-size: 3.2rem; }
+            .products-grid,
+            .why-grid,
+            .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+            .impact-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-timeline { grid-template-columns: repeat(2, 1fr); }
+            .process-timeline::before { display: none; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4) { grid-column: span 1; height: 280px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 60px 20px; }
+            .navbar { padding: 12px 20px; }
+            .navbar.scrolled { padding: 8px 20px; }
+            .nav-logo-text { font-size: 1.1rem; }
+            .nav-logo-icon { width: 38px; height: 38px; font-size: 16px; }
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100vh;
+                background: var(--green-dark);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                z-index: 1000;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { font-size: 1.2rem; }
+            .hamburger { display: flex; }
+            .hero { min-height: 100vh; padding: 0 15px; }
+            .hero-content { padding: 0 10px; }
+            .hero-badge { font-size: 0.75rem; padding: 6px 16px; margin-bottom: 20px; }
+            .hero-title { font-size: 2.8rem; }
+            .hero-slogan { font-size: 1.5rem; margin-bottom: 18px; }
+            .hero-desc { font-size: 0.95rem; line-height: 1.7; margin-bottom: 30px; }
+            .hero-buttons { flex-direction: column; align-items: center; gap: 12px; }
+            .btn-primary, .btn-outline { width: 100%; max-width: 300px; justify-content: center; padding: 14px 30px; }
+            .hero-stats { gap: 20px; margin-top: 40px; flex-wrap: nowrap; }
+            .hero-stat-number { font-size: 1.8rem; }
+            .hero-stat-label { font-size: 0.75rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 30px; }
+            .about-images { height: 300px; }
+            .about-img-main { width: 100%; height: 300px; border-radius: 16px; }
+            .about-img-secondary { width: 140px; height: 180px; border-radius: 12px; right: -5px; bottom: -15px; }
+            .about-decoration { width: 80px; height: 80px; top: -10px; left: -10px; }
+            .about-text h3 { font-size: 1.8rem; }
+            .about-text p { font-size: 0.95rem; }
+            .about-features { grid-template-columns: 1fr 1fr; gap: 15px; }
+            .about-feature-icon { width: 38px; height: 38px; font-size: 0.9rem; }
+            .about-feature span { font-size: 0.85rem; }
+            .section-header { margin-bottom: 40px; }
+            .section-title { font-size: 2rem; }
+            .section-subtitle { font-size: 0.95rem; }
+            .section-tag { font-size: 0.7rem; padding: 5px 16px; }
+            .why-card { padding: 30px 25px; border-radius: 18px; }
+            .why-icon { width: 65px; height: 65px; font-size: 1.6rem; }
+            .why-card h4 { font-size: 1.15rem; }
+            .why-card p { font-size: 0.88rem; }
+            .products-grid,
+            .why-grid,
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .product-card { border-radius: 18px; }
+            .product-img-wrapper { height: 220px; }
+            .product-info { padding: 20px; }
+            .product-info h4 { font-size: 1.15rem; }
+            .product-info p { font-size: 0.85rem; }
+            .process-timeline { grid-template-columns: 1fr 1fr; gap: 25px; }
+            .process-timeline::before { display: none; }
+            .process-number { width: 50px; height: 50px; font-size: 1.2rem; }
+            .process-step-icon { font-size: 2rem; }
+            .process-step h4 { font-size: 1.05rem; }
+            .process-step p { font-size: 0.82rem; }
+            .impact-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .impact-card { padding: 20px 10px; border-radius: 16px; }
+            .impact-icon { font-size: 1.8rem; margin-bottom: 10px; }
+            .impact-number { font-size: 1.6rem; }
+            .impact-label { font-size: 0.72rem; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .gallery-item { height: 180px; border-radius: 12px; }
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4) { grid-column: span 2; height: 200px; }
+            .testimonial-card { padding: 25px; border-radius: 18px; }
+            .testimonial-quote { font-size: 2.2rem; }
+            .testimonial-card p { font-size: 0.88rem; }
+            .cta-section { padding: 60px 20px; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .cta-section p { font-size: 1rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .btn-white { width: 100%; max-width: 300px; justify-content: center; }
+            .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+            .contact-form { padding: 25px; border-radius: 18px; }
+            .contact-info h3 { font-size: 1.6rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .form-group input, .form-group textarea { padding: 12px 16px; font-size: 0.9rem; }
+            .btn-submit { padding: 14px; font-size: 0.95rem; }
+            .footer { padding: 50px 20px 20px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 25px; }
+            .footer-brand { grid-column: span 2; }
+            .footer-brand h3 { font-size: 1.5rem; }
+            .footer-brand p { font-size: 0.85rem; }
+            .footer-col h4 { font-size: 0.9rem; margin-bottom: 15px; }
+            .footer-col ul li a { font-size: 0.82rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-bottom p { font-size: 0.8rem; }
+            .back-to-top { width: 44px; height: 44px; bottom: 20px; right: 20px; font-size: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .section { padding: 50px 15px; }
+            .hero-title { font-size: 2.2rem; }
+            .hero-slogan { font-size: 1.3rem; }
+            .hero-desc { font-size: 0.88rem; }
+            .hero-stats { gap: 15px; }
+            .hero-stat-number { font-size: 1.5rem; }
+            .hero-stat-label { font-size: 0.7rem; }
+            .about-images { height: 250px; }
+            .about-img-main { height: 250px; }
+            .about-img-secondary { width: 120px; height: 150px; }
+            .about-text h3 { font-size: 1.5rem; }
+            .about-features { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.7rem; }
+            .section-subtitle { font-size: 0.85rem; }
+            .process-timeline { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item,
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4) { grid-column: span 1; height: 200px; }
+            .impact-number { font-size: 1.8rem; }
+            .impact-label { font-size: 0.75rem; }
+            .cta-section h2 { font-size: 1.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-brand { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <div class="nav-logo-text">Đất Tổ <span>Star Eco</span></div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">Về Chúng Tôi</a></li>
+            <li><a href="#why">Tại Sao Chọn</a></li>
+            <li><a href="#products">Sản Phẩm</a></li>
+            <li><a href="#process">Quy Trình</a></li>
+            <li><a href="#gallery">Thư Viện Ảnh</a></li>
+            <li><a href="#contact" class="nav-cta">Liên Hệ</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-pattern"></div>
+
+        <!-- Floating elements -->
+        <div class="hero-floating" style="width:20px;height:20px;left:10%;background:var(--green-light);animation-delay:0s;"></div>
+        <div class="hero-floating" style="width:15px;height:15px;left:30%;background:var(--green-pale);animation-delay:4s;"></div>
+        <div class="hero-floating" style="width:25px;height:25px;left:55%;background:var(--green-medium);animation-delay:8s;"></div>
+        <div class="hero-floating" style="width:12px;height:12px;left:75%;background:var(--green-light);animation-delay:12s;"></div>
+        <div class="hero-floating" style="width:18px;height:18px;left:90%;background:var(--green-pale);animation-delay:16s;"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-seedling"></i>
+                100% Tự Nhiên - Thân Thiện Môi Trường
+            </div>
+            <h1 class="hero-title">
+                Đất Tổ<br><span class="highlight">Star Eco</span>
+            </h1>
+            <p class="hero-slogan">Xanh Hóa Tương Lai Việt</p>
+            <p class="hero-desc">
+                Tiên phong sản xuất bát đĩa từ lá Mo Cau thiên nhiên, thay thế đồ nhựa và xốp.
+                Góp phần bảo vệ môi trường, hướng tới tương lai xanh cho Việt Nam.
+            </p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn-primary">
+                    <i class="fas fa-shopping-bag"></i> Khám Phá Sản Phẩm
+                </a>
+                <a href="#about" class="btn-outline">
+                    <i class="fas fa-play-circle"></i> Tìm Hiểu Thêm
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="100">0</div>
+                    <div class="hero-stat-label">% Tự Nhiên</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="500">0</div>
+                    <div class="hero-stat-label">+ Đối Tác</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="0">0</div>
+                    <div class="hero-stat-label">% Chất Thải Nhựa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="about-grid">
+            <div class="about-images reveal">
+                <div class="about-decoration"></div>
+                <img src="11955911140546836014.jpg"
+                     alt="Sản xuất tại xưởng Đất Tổ Star Eco" class="about-img-main">
+                <img src="1499412527257154869.jpg"
+                     alt="Chứng nhận ISO 22000:2018" class="about-img-secondary">
+            </div>
+            <div class="about-text reveal">
+                <h3>Câu Chuyện <span>Đất Tổ Star Eco</span></h3>
+                <p>
+                    Xuất phát từ tình yêu quê hương và trách nhiệm với môi trường,
+                    <strong>Đất Tổ Star Eco</strong> ra đời với sứ mệnh thay thế những sản phẩm nhựa, xốp
+                    bằng những chiếc bát, đĩa làm từ lá Mo Cau tự nhiên.
+                </p>
+                <p>
+                    Chúng tôi thu mua Mo Cau từ những vườn cau xanh mướt trên khắp cả nước,
+                    qua quy trình sản xuất sạch sẽ, tạo ra những sản phẩm vừa đẹp,
+                    vừa an toàn cho sức khỏe và thân thiện với môi trường.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="fas fa-leaf"></i></div>
+                        <span>100% Tự Nhiên</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="fas fa-recycle"></i></div>
+                        <span>Tự Phân Hủy</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="fas fa-heart"></i></div>
+                        <span>An Toàn Sức Khỏe</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon"><i class="fas fa-award"></i></div>
+                        <span>Chất Lượng Cao</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="section why-section" id="why">
+        <div class="section-header reveal">
+            <div class="section-tag">Tại Sao Chọn Chúng Tôi</div>
+            <h2 class="section-title">Giá Trị Cốt Lõi</h2>
+            <p class="section-subtitle">Mỗi sản phẩm của chúng tôi đều mang theo thông điệp bảo vệ môi trường và phát triển bền vững</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fas fa-globe-americas"></i></div>
+                <h4>Bảo Vệ Môi Trường</h4>
+                <p>Sản phẩm tự phân hủy hoàn toàn trong tự nhiên, không gây ô nhiễm như nhựa và xốp. Giảm thiểu rác thải nhựa ra môi trường.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <h4>An Toàn Sức Khỏe</h4>
+                <p>Lá Mo Cau 100% tự nhiên, không hóa chất độc hại, an toàn tuyệt đối khi tiếp xúc với thực phẩm nóng hay lạnh.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fas fa-tree"></i></div>
+                <h4>Nguồn Gốc Tự Nhiên</h4>
+                <p>Mo Cau được thu mua từ các vườn cau tại Việt Nam, tạo sinh kế cho bà con nông dân và phát triển kinh tế địa phương.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fas fa-palette"></i></div>
+                <h4>Thiết Kế Độc Đáo</h4>
+                <p>Mỗi chiếc đĩa, bát đều mang vân gỗ tự nhiên độc nhất vô nhị, tạo nên nét đẹp mộc mạc, sang trọng cho bàn ăn.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fas fa-temperature-high"></i></div>
+                <h4>Chịu Nhiệt Tốt</h4>
+                <p>Sản phẩm chịu được nhiệt độ cao, có thể dùng trong lò vi sóng, không biến dạng hay giải phóng chất độc hại.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon"><i class="fas fa-handshake"></i></div>
+                <h4>Phát Triển Bền Vững</h4>
+                <p>Mô hình kinh tế tuần hoàn: từ vườn cau - sản xuất - sử dụng - tự phân hủy trở lại với đất, khép kín vòng đời sản phẩm.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products" id="products">
+        <div class="section-header reveal">
+            <div class="section-tag">Sản Phẩm</div>
+            <h2 class="section-title">Bộ Sưu Tập Mo Cau</h2>
+            <p class="section-subtitle">Đa dạng mẫu mã, phục vụ mọi nhu cầu từ bữa ăn gia đình đến sự kiện sang trọng</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal">
+                <div class="product-img-wrapper">
+                    <img src="5996865924715423.jpg"
+                         alt="Bộ sản phẩm Mo Cau Đất Tổ Star Eco">
+                    <div class="product-badge">Bán Chạy</div>
+                </div>
+                <div class="product-info">
+                    <h4>Bộ Sản Phẩm Đa Dạng</h4>
+                    <p>Đĩa tròn, đĩa vuông, chén, bát đủ kích cỡ từ 15cm - 25cm, phục hợp cho các bữa ăn hàng ngày và tiệc buffet.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Tự Nhiên</span>
+                        <span class="product-tag">Tự Phân Hủy</span>
+                        <span class="product-tag">Đa Kích Cỡ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-img-wrapper">
+                    <img src="https://dailocvina.com/wp-content/uploads/2021/09/areca-round-plates-500x500-1.jpg"
+                         alt="Đĩa tròn Mo Cau"
+                         onerror="this.src='https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=500&h=400&fit=crop'">
+                    <div class="product-badge">Mới</div>
+                </div>
+                <div class="product-info">
+                    <h4>Đĩa Tròn Mo Cau</h4>
+                    <p>Thiết kế tròn cổ điển, lý tưởng cho nhà hàng, quán cafe và các sự kiện sang trọng.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Sang Trọng</span>
+                        <span class="product-tag">Hiện Đại</span>
+                        <span class="product-tag">Chịu Nhiệt</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-img-wrapper">
+                    <img src="https://upkgs.com/wp-content/uploads/2024/03/Areca-Leaf-Bowl-250-ML-400x400.jpg"
+                         alt="Chén Mo Cau"
+                         onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&h=400&fit=crop'">
+                    <div class="product-badge">Yêu Thích</div>
+                </div>
+                <div class="product-info">
+                    <h4>Chén / Bát Mo Cau</h4>
+                    <p>Chén bát sâu lòng, đựng được cả món nước như phở, bún, canh. Không bị ngấm nước hay biến dạng.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Chống Ngấm</span>
+                        <span class="product-tag">Đa Năng</span>
+                        <span class="product-tag">An Toàn</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-img-wrapper">
+                    <img src="https://dailocvina.com/wp-content/uploads/2021/09/10-areca-leaf-plate-with-knife-fork-combo-set-1565758798-5043182.jpeg"
+                         alt="Bộ combo Mo Cau"
+                         onerror="this.src='https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=500&h=400&fit=crop'">
+                    <div class="product-badge">Combo</div>
+                </div>
+                <div class="product-info">
+                    <h4>Bộ Combo Tiệc</h4>
+                    <p>Trọn bộ đĩa, chén, thìa, dao, nĩa từ Mo Cau. Giải pháp hoàn hảo cho tiệc cưới, sinh nhật, sự kiện.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Trọn Bộ</span>
+                        <span class="product-tag">Tiệc</span>
+                        <span class="product-tag">Tiết Kiệm</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-img-wrapper">
+                    <img src="https://vnecofriendly.com/wp-content/uploads/2022/09/Biodegradable-disposable-eco-friendly-palm-leaf-rectangular-plates-D15mm.jpg"
+                         alt="Đĩa chữ nhật Mo Cau"
+                         onerror="this.src='https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=500&h=400&fit=crop'">
+                    <div class="product-badge">Hot</div>
+                </div>
+                <div class="product-info">
+                    <h4>Đĩa Chữ Nhật Mo Cau</h4>
+                    <p>Kích cỡ lớn, lý tưởng để đựng món nướng BBQ, hải sản, trái cây. Vân gỗ tự nhiên sang trọng.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Kích Cỡ Lớn</span>
+                        <span class="product-tag">BBQ</span>
+                        <span class="product-tag">Premium</span>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card reveal">
+                <div class="product-img-wrapper">
+                    <img src="https://upkgs.com/wp-content/uploads/2024/03/Square-Areca-Leaf-Plate-9%22-400x400.jpg"
+                         alt="Đĩa vuông Mo Cau"
+                         onerror="this.src='https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&h=400&fit=crop'">
+                    <div class="product-badge">Đặc Biệt</div>
+                </div>
+                <div class="product-info">
+                    <h4>Đĩa Vuông Mo Cau</h4>
+                    <p>Set quà tặng sang trọng từ Mo Cau, ý nghĩa và khác biệt. Phù hợp làm quà biếu, quà tặng doanh nghiệp.</p>
+                    <div class="product-tags">
+                        <span class="product-tag">Quà Tặng</span>
+                        <span class="product-tag">Sang Trọng</span>
+                        <span class="product-tag">Ý Nghĩa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process" id="process">
+        <div class="section-header reveal">
+            <div class="section-tag">Quy Trình</div>
+            <h2 class="section-title">Từ Lá Cau Đến Bàn Ăn</h2>
+            <p class="section-subtitle">Quy trình sản xuất khép kín, đảm bảo chất lượng và vệ sinh an toàn thực phẩm</p>
+        </div>
+        <div class="process-timeline">
+            <div class="process-step reveal">
+                <div class="process-number">1</div>
+                <div class="process-step-icon">🌴</div>
+                <h4>Thu Mua Mo Cau</h4>
+                <p>Thu mua Mo Cau từ các vườn cau tự nhiên trên khắp Việt Nam, đảm bảo nguồn nguyên liệu sạch và chất lượng.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="process-number">2</div>
+                <div class="process-step-icon">🧹</div>
+                <h4>Xử Lý & Làm Sạch</h4>
+                <p>Mo Cau được rửa sạch, xử lý khuẩn và phơi khô tự nhiên, loại bỏ tạp chất và đảm bảo vệ sinh.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="process-number">3</div>
+                <div class="process-step-icon">🔧</div>
+                <h4>Ép Khuôn & Tạo Hình</h4>
+                <p>Sử dụng công nghệ ép nhiệt hiện đại, tạo hình bát đĩa theo nhiều mẫu mã và kích cỡ khác nhau.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="process-number">4</div>
+                <div class="process-step-icon">📦</div>
+                <h4>Kiểm Tra & Đóng Gói</h4>
+                <p>Mỗi sản phẩm đều được kiểm tra chất lượng nghiêm ngặt trước khi đóng gói và phân phối đến tay khách hàng.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="gallery">
+        <div class="section-header reveal">
+            <div class="section-tag">Thư Viện Ảnh</div>
+            <h2 class="section-title">Hình Ảnh Thực Tế</h2>
+            <p class="section-subtitle">Những hình ảnh chân thực về sản phẩm và quy trình sản xuất của Đất Tổ Star Eco</p>
+        </div>
+        <div class="gallery-grid reveal">
+            <div class="gallery-item">
+                <img src="5996865924715423.jpg"
+                     alt="Bộ sản phẩm Mo Cau đa dạng">
+                <div class="gallery-overlay"><h5>Bộ Sản Phẩm Đa Dạng</h5></div>
+            </div>
+            <div class="gallery-item">
+                <img src="11955911140546836014.jpg"
+                     alt="Ép khuôn Mo Cau tại xưởng">
+                <div class="gallery-overlay"><h5>Quy Trình Ép Khuôn</h5></div>
+            </div>
+            <div class="gallery-item">
+                <img src="42870689684719742261.jpg"
+                     alt="Thu mua nguyên liệu Mo Cau">
+                <div class="gallery-overlay"><h5>Thu Mua Nguyên Liệu</h5></div>
+            </div>
+            <div class="gallery-item">
+                <img src="42870689684719742262.jpg"
+                     alt="Nguyên liệu Mo Cau đã bó">
+                <div class="gallery-overlay"><h5>Nguyên Liệu Mo Cau</h5></div>
+            </div>
+            <div class="gallery-item">
+                <img src="1499412527257154869.jpg"
+                     alt="Chứng nhận ISO 22000:2018">
+                <div class="gallery-overlay"><h5>Chứng Nhận ISO 22000:2018</h5></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://dailocvina.com/wp-content/uploads/2021/09/areca-leaf-plate-3.jpg"
+                     alt="Đĩa Mo Cau thành phẩm"
+                     onerror="this.src='https://images.unsplash.com/photo-1473973266408-ed4e27abdd47?w=500&h=400&fit=crop'">
+                <div class="gallery-overlay"><h5>Chất Lượng Vượt Trội</h5></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section impact" id="impact">
+        <div class="section-header reveal">
+            <div class="section-tag">Tác Động</div>
+            <h2 class="section-title">Những Con Số Biết Nói</h2>
+            <p class="section-subtitle">Mỗi sản phẩm bạn sử dụng là một đóng góp thiết thực cho môi trường</p>
+        </div>
+        <div class="impact-grid reveal">
+            <div class="impact-card">
+                <div class="impact-icon">🌿</div>
+                <div class="impact-number" data-target="50000">0</div>
+                <div class="impact-label">Sản Phẩm / Tháng</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon">🚫</div>
+                <div class="impact-number" data-target="10000">0</div>
+                <div class="impact-label">Kg Nhựa Giảm Thiểu</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon">👨‍🌾</div>
+                <div class="impact-number" data-target="200">0</div>
+                <div class="impact-label">Hộ Nông Dân Hợp Tác</div>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon">🏆</div>
+                <div class="impact-number" data-target="30">0</div>
+                <div class="impact-label">Tỉnh Thành Phân Phối</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-header reveal">
+            <div class="section-tag">Cảm Nhận</div>
+            <h2 class="section-title">Khách Hàng Nói Gì</h2>
+            <p class="section-subtitle">Những phản hồi chân thực từ khách hàng đã sử dụng sản phẩm Đất Tổ Star Eco</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p>Sản phẩm Mo Cau của Đất Tổ Star Eco rất chất lượng. Tôi đã dùng cho tiệc cưới con gái và mọi người đều rất ấn tượng với vẻ đẹp tự nhiên của nó.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">TH</div>
+                    <div>
+                        <div class="testimonial-name">Trần Thị Hương</div>
+                        <div class="testimonial-role">Khách hàng tại Hà Nội</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p>Là chủ nhà hàng, tôi luôn tìm kiếm giải pháp thân thiện môi trường. Đĩa Mo Cau giúp nhà hàng tôi tạo được điểm nhấn độc đáo và khách hàng rất thích.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">NV</div>
+                    <div>
+                        <div class="testimonial-name">Nguyễn Văn Minh</div>
+                        <div class="testimonial-role">Chủ nhà hàng Eco Garden</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal">
+                <div class="testimonial-quote">"</div>
+                <p>Tôi đặt hàng thường xuyên để tổ chức các sự kiện của công ty. Sản phẩm đóng gói đẹp, giao hàng nhanh và giá cả hợp lý. Rất hài lòng!</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">LA</div>
+                    <div>
+                        <div class="testimonial-name">Lê Thị Anh</div>
+                        <div class="testimonial-role">Quản lý sự kiện, TP.HCM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content reveal">
+            <h2>Sẵn Sàng Xanh Hóa Tương Lai?</h2>
+            <p>Hãy cùng Đất Tổ Star Eco tạo nên sự thay đổi tích cực cho môi trường. Mỗi bước đi nhỏ đều mang ý nghĩa lớn.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn-white">
+                    <i class="fas fa-envelope"></i> Liên Hệ Ngay
+                </a>
+                <a href="#products" class="btn-outline" style="border-color: rgba(255,255,255,0.5);">
+                    <i class="fas fa-shopping-bag"></i> Xem Sản Phẩm
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="section-header reveal">
+            <div class="section-tag">Liên Hệ</div>
+            <h2 class="section-title">Kết Nối Với Chúng Tôi</h2>
+            <p class="section-subtitle">Bạn có câu hỏi hoặc muốn đặt hàng? Hãy liên hệ với chúng tôi ngay!</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info reveal">
+                <h3>Thông Tin Liên Hệ</h3>
+                <p>Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn. Hãy để lại thông tin, chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.</p>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="contact-item-text">
+                        <h5>Địa Chỉ</h5>
+                        <p>Phú Thọ, Việt Nam</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="contact-item-text">
+                        <h5>Điện Thoại</h5>
+                        <p>0xxx.xxx.xxx</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="contact-item-text">
+                        <h5>Email</h5>
+                        <p>contact@dattostareco.vn</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+                    <div class="contact-item-text">
+                        <h5>Giờ Làm Việc</h5>
+                        <p>T2 - T7: 8:00 - 17:30</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form reveal">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Họ và Tên</label>
+                            <input type="text" placeholder="Nhập họ tên của bạn" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Số Điện Thoại</label>
+                            <input type="tel" placeholder="Nhập số điện thoại" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Nhập địa chỉ email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nội Dung</label>
+                        <textarea placeholder="Nhập nội dung tin nhắn, yêu cầu báo giá..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Gửi Tin Nhắn
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Đất Tổ <span>Star Eco</span></h3>
+                <p>Tiên phong trong lĩnh vực sản xuất sản phẩm thân thiện môi trường từ lá Mo Cau. Xanh Hóa Tương Lai Việt.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Sản Phẩm</h4>
+                <ul>
+                    <li><a href="#products">Đĩa Tròn Mo Cau</a></li>
+                    <li><a href="#products">Đĩa Vuông Mo Cau</a></li>
+                    <li><a href="#products">Chén Bát Mo Cau</a></li>
+                    <li><a href="#products">Bộ Combo Tiệc</a></li>
+                    <li><a href="#products">Quà Tặng Eco</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Về Chúng Tôi</h4>
+                <ul>
+                    <li><a href="#about">Giới Thiệu</a></li>
+                    <li><a href="#process">Quy Trình</a></li>
+                    <li><a href="#impact">Tác Động</a></li>
+                    <li><a href="#testimonials">Cảm Nhận</a></li>
+                    <li><a href="#gallery">Thư Viện Ảnh</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Hỗ Trợ</h4>
+                <ul>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                    <li><a href="#">Chính Sách Đổi Trả</a></li>
+                    <li><a href="#">Vận Chuyển</a></li>
+                    <li><a href="#">Câu Hỏi Thường Gặp</a></li>
+                    <li><a href="#">Hợp Tác Kinh Doanh</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Đất Tổ Star Eco. Tất cả quyền được bảo lưu.</p>
+            <p>Xanh Hóa Tương Lai Việt 🌿</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            reveals.forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Counter animation
+        const counters = document.querySelectorAll('[data-target]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = +entry.target.getAttribute('data-target');
+                    const duration = 2000;
+                    const start = performance.now();
+
+                    const animate = (now) => {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        entry.target.textContent = Math.floor(target * eased).toLocaleString();
+
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            entry.target.textContent = target.toLocaleString();
+                        }
+                    };
+                    requestAnimationFrame(animate);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // Back to top
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Contact form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
