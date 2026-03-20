@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const server = http.createServer((req, res) => {
-    let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+    let decodedUrl = decodeURIComponent(req.url);
+    let filePath = path.join(__dirname, decodedUrl === '/' ? 'index.html' : decodedUrl);
     const ext = path.extname(filePath).toLowerCase();
     const mimeTypes = {
         '.html': 'text/html; charset=utf-8',
@@ -13,7 +14,9 @@ const server = http.createServer((req, res) => {
         '.jpg': 'image/jpeg',
         '.gif': 'image/gif',
         '.svg': 'image/svg+xml',
-        '.ico': 'image/x-icon'
+        '.ico': 'image/x-icon',
+        '.pdf': 'application/pdf',
+        '.jpeg': 'image/jpeg'
     };
     const contentType = mimeTypes[ext] || 'application/octet-stream';
     fs.readFile(filePath, (err, content) => {
