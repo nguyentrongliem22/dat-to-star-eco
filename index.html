@@ -3,348 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dat To Star Eco | Xanh Hoa Tuong Lai Viet</title>
-    <meta name="description" content="HTX Sinh Thai Dat To Star Eco - San xuat bat dia sinh hoc tu mo cau, thay the nhua dung mot lan.">
+    <title>Đất Tổ Star Eco | Xanh Hoá Tương Lai Việt</title>
+    <meta name="description" content="HTX Sinh Thái Đất Tổ Star Eco - Sản xuất bát đĩa sinh học từ mo cau, thay thế nhựa dùng một lần.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --green-dark: #1a472a;
-            --green-main: #2d6a4f;
-            --green-mid: #40916c;
-            --green-light: #52b788;
-            --green-pale: #b7e4c7;
-            --green-bg: #d8f3dc;
-            --cream: #fefae0;
-            --cream-dark: #f4f1de;
-            --brown: #6b4226;
-            --brown-light: #a67c52;
-            --gold: #c9a84c;
-            --gold-light: #e6d28e;
-            --white: #ffffff;
-            --text-dark: #1b1b1b;
-            --text-gray: #555;
-            --text-light: #777;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: var(--white); overflow-x: hidden; }
+        :root{--green-dark:#1a472a;--green-main:#2d6a4f;--green-mid:#40916c;--green-light:#52b788;--green-pale:#b7e4c7;--green-bg:#d8f3dc;--cream:#fefae0;--cream-dark:#f4f1de;--brown:#6b4226;--gold:#c9a84c;--gold-light:#e6d28e;--white:#fff;--text-dark:#1b1b1b;--text-gray:#555;--text-light:#777}
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',sans-serif;color:var(--text-dark);background:var(--white);overflow-x:hidden}
 
-        /* LOADER */
-        .loader { position: fixed; inset: 0; background: var(--green-dark); display: flex; align-items: center; justify-content: center; z-index: 99999; transition: opacity .8s, visibility .8s; }
-        .loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-        .loader-leaf { width: 60px; height: 60px; border: 4px solid var(--green-pale); border-top-color: var(--green-light); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
-        .loader-text { color: var(--green-pale); font-size: 1.2rem; letter-spacing: 3px; text-align: center; }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .loader{position:fixed;inset:0;background:var(--green-dark);display:flex;align-items:center;justify-content:center;z-index:99999;transition:opacity .8s,visibility .8s}
+        .loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+        .loader-leaf{width:60px;height:60px;border:4px solid var(--green-pale);border-top-color:var(--green-light);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 20px}
+        .loader-text{color:var(--green-pale);font-size:1.2rem;letter-spacing:3px;text-align:center}
+        @keyframes spin{to{transform:rotate(360deg)}}
 
         /* NAVBAR */
-        .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(26,71,42,.95); backdrop-filter: blur(20px); padding: 0 40px; transition: all .4s; border-bottom: 1px solid rgba(82,183,136,.2); }
-        .navbar.scrolled { background: rgba(26,71,42,.98); box-shadow: 0 4px 30px rgba(0,0,0,.15); }
-        .nav-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 70px; }
-        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .nav-logo-icon { width: 45px; height: 45px; background: linear-gradient(135deg, var(--green-light), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
-        .nav-logo-text { color: var(--white); }
-        .nav-logo-text .brand { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
-        .nav-logo-text .slogan { font-size: .65rem; color: var(--green-pale); letter-spacing: 2px; text-transform: uppercase; }
-        .nav-links { display: flex; gap: 5px; list-style: none; align-items: center; }
-        .nav-links a { color: rgba(255,255,255,.85); text-decoration: none; padding: 8px 16px; border-radius: 8px; font-size: .9rem; font-weight: 500; transition: all .3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--white); background: rgba(82,183,136,.2); }
-        .nav-cta { background: linear-gradient(135deg, var(--green-light), var(--green-mid)) !important; color: var(--white) !important; padding: 10px 24px !important; border-radius: 25px !important; font-weight: 600 !important; }
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(82,183,136,.4); }
-        .lang-switch { display: flex; gap: 4px; margin-left: 10px; }
-        .lang-btn { padding: 5px 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,.3); background: transparent; color: rgba(255,255,255,.7); font-size: .8rem; font-weight: 600; cursor: pointer; transition: all .3s; }
-        .lang-btn.active { background: var(--green-light); color: var(--white); border-color: var(--green-light); }
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 5px; }
-        .hamburger span { width: 25px; height: 2px; background: var(--white); transition: all .3s; border-radius: 2px; }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+        .navbar{position:fixed;top:0;width:100%;z-index:1000;background:rgba(26,71,42,.95);backdrop-filter:blur(20px);padding:0 40px;transition:all .4s;border-bottom:1px solid rgba(82,183,136,.2)}
+        .navbar.scrolled{background:rgba(26,71,42,.98);box-shadow:0 4px 30px rgba(0,0,0,.15)}
+        .nav-container{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
+        .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+        .nav-logo-icon{width:45px;height:45px;background:linear-gradient(135deg,var(--green-light),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+        .nav-logo-text{color:var(--white)}.nav-logo-text .brand{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700}
+        .nav-logo-text .slogan{font-size:.65rem;color:var(--green-pale);letter-spacing:2px;text-transform:uppercase}
+        .nav-links{display:flex;gap:5px;list-style:none;align-items:center}
+        .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;padding:8px 16px;border-radius:8px;font-size:.9rem;font-weight:500;transition:all .3s;white-space:nowrap}
+        .nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(82,183,136,.2)}
+        .nav-cta{background:linear-gradient(135deg,var(--green-light),var(--green-mid))!important;color:var(--white)!important;padding:10px 24px!important;border-radius:25px!important;font-weight:600!important}
+        .lang-switch{display:flex;gap:4px;margin-left:10px}
+        .lang-btn{padding:5px 12px;border-radius:6px;border:1px solid rgba(255,255,255,.3);background:transparent;color:rgba(255,255,255,.7);font-size:.8rem;font-weight:600;cursor:pointer;transition:all .3s}
+        .lang-btn.active{background:var(--green-light);color:var(--white);border-color:var(--green-light)}
+        .hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;background:none;border:none;padding:8px;z-index:1002}
+        .hamburger span{width:28px;height:3px;background:var(--white);transition:all .3s;border-radius:2px;display:block}
+        .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(6px,6px)}
+        .hamburger.active span:nth-child(2){opacity:0}
+        .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px)}
 
         /* HERO */
-        .hero { min-height: 100vh; background: linear-gradient(135deg, var(--green-dark) 0%, #0d3320 50%, var(--green-dark) 100%); display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 70px; }
-        .hero-bg-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(82,183,136,.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(201,168,76,.06) 0%, transparent 50%), radial-gradient(circle at 60% 80%, rgba(82,183,136,.05) 0%, transparent 50%); }
-        .hero-floating { position: absolute; border-radius: 50%; opacity: .06; animation: float 20s ease-in-out infinite; }
-        .hero-floating:nth-child(2) { width: 400px; height: 400px; background: var(--green-light); top: -100px; right: -100px; }
-        .hero-floating:nth-child(3) { width: 300px; height: 300px; background: var(--gold); bottom: -50px; left: -50px; animation-delay: -7s; }
-        .hero-floating:nth-child(4) { width: 200px; height: 200px; background: var(--green-pale); top: 40%; left: 30%; animation-delay: -14s; }
-        @keyframes float { 0%,100% { transform: translate(0,0) rotate(0); } 33% { transform: translate(30px,-30px) rotate(120deg); } 66% { transform: translate(-20px,20px) rotate(240deg); } }
-        .hero-container { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
-        .hero-content { max-width: 600px; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(82,183,136,.15); border: 1px solid rgba(82,183,136,.3); padding: 8px 20px; border-radius: 50px; color: var(--green-pale); font-size: .85rem; font-weight: 500; margin-bottom: 24px; animation: fadeInUp .8s ease forwards; }
-        .hero-badge-dot { width: 8px; height: 8px; background: var(--green-light); border-radius: 50%; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 10px; animation: fadeInUp .8s ease .2s forwards; opacity: 0; }
-        .hero h1 .highlight { background: linear-gradient(135deg, var(--green-light), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-slogan { font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--gold); margin-bottom: 20px; animation: fadeInUp .8s ease .3s forwards; opacity: 0; }
-        .hero p { color: rgba(255,255,255,.75); font-size: 1.1rem; line-height: 1.8; margin-bottom: 35px; animation: fadeInUp .8s ease .4s forwards; opacity: 0; }
-        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeInUp .8s ease .5s forwards; opacity: 0; }
-        .btn-primary { background: linear-gradient(135deg, var(--green-light), var(--green-mid)); color: var(--white); padding: 16px 36px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; gap: 10px; transition: all .3s; border: none; cursor: pointer; }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(82,183,136,.4); }
-        .btn-outline { border: 2px solid rgba(255,255,255,.3); color: var(--white); padding: 14px 36px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; gap: 10px; transition: all .3s; background: transparent; }
-        .btn-outline:hover { border-color: var(--green-light); background: rgba(82,183,136,.1); }
-        .hero-visual { position: relative; animation: fadeInRight 1s ease .3s forwards; opacity: 0; }
-        .hero-img-main { width: 100%; max-width: 500px; border-radius: 30px; box-shadow: 0 30px 80px rgba(0,0,0,.3); object-fit: cover; aspect-ratio: 4/3; }
-        .hero-img-float { position: absolute; width: 180px; height: 180px; border-radius: 20px; object-fit: cover; box-shadow: 0 15px 40px rgba(0,0,0,.3); border: 4px solid rgba(255,255,255,.15); }
-        .hero-img-float.f1 { bottom: -30px; left: -40px; animation: bobble 4s ease-in-out infinite; }
-        .hero-img-float.f2 { top: -20px; right: -30px; animation: bobble 4s ease-in-out infinite 1s; width: 150px; height: 150px; border-radius: 50%; }
-        @keyframes bobble { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-        .hero-stats { display: flex; gap: 30px; margin-top: 50px; animation: fadeInUp .8s ease .6s forwards; opacity: 0; }
-        .hero-stat { text-align: center; }
-        .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); }
-        .hero-stat-label { font-size: .8rem; color: rgba(255,255,255,.6); margin-top: 4px; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        .hero{min-height:100vh;background:linear-gradient(135deg,var(--green-dark) 0%,#0d3320 50%,var(--green-dark) 100%);display:flex;align-items:center;position:relative;overflow:hidden;padding-top:70px}
+        .hero-bg-pattern{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(82,183,136,.08) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(201,168,76,.06) 0%,transparent 50%),radial-gradient(circle at 60% 80%,rgba(82,183,136,.05) 0%,transparent 50%)}
+        .hero-floating{position:absolute;border-radius:50%;opacity:.06;animation:float 20s ease-in-out infinite}
+        .hero-floating:nth-child(2){width:400px;height:400px;background:var(--green-light);top:-100px;right:-100px}
+        .hero-floating:nth-child(3){width:300px;height:300px;background:var(--gold);bottom:-50px;left:-50px;animation-delay:-7s}
+        .hero-floating:nth-child(4){width:200px;height:200px;background:var(--green-pale);top:40%;left:30%;animation-delay:-14s}
+        @keyframes float{0%,100%{transform:translate(0,0) rotate(0)}33%{transform:translate(30px,-30px) rotate(120deg)}66%{transform:translate(-20px,20px) rotate(240deg)}}
+        .hero-container{max-width:1400px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+        .hero-content{max-width:600px}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(82,183,136,.15);border:1px solid rgba(82,183,136,.3);padding:8px 20px;border-radius:50px;color:var(--green-pale);font-size:.85rem;font-weight:500;margin-bottom:24px;animation:fadeInUp .8s ease forwards}
+        .hero-badge-dot{width:8px;height:8px;background:var(--green-light);border-radius:50%;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+        .hero h1{font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:800;color:var(--white);line-height:1.15;margin-bottom:10px;animation:fadeInUp .8s ease .2s forwards;opacity:0}
+        .hero h1 .highlight{background:linear-gradient(135deg,var(--green-light),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero-slogan{font-family:'Dancing Script',cursive;font-size:2rem;color:var(--gold);margin-bottom:20px;animation:fadeInUp .8s ease .3s forwards;opacity:0}
+        .hero p{color:rgba(255,255,255,.75);font-size:1.1rem;line-height:1.8;margin-bottom:35px;animation:fadeInUp .8s ease .4s forwards;opacity:0}
+        .hero-btns{display:flex;gap:16px;flex-wrap:wrap;animation:fadeInUp .8s ease .5s forwards;opacity:0}
+        .btn-primary{background:linear-gradient(135deg,var(--green-light),var(--green-mid));color:var(--white);padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1rem;display:inline-flex;align-items:center;gap:10px;transition:all .3s;border:none;cursor:pointer}
+        .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(82,183,136,.4)}
+        .btn-outline{border:2px solid rgba(255,255,255,.3);color:var(--white);padding:14px 36px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1rem;display:inline-flex;align-items:center;gap:10px;transition:all .3s;background:transparent}
+        .btn-outline:hover{border-color:var(--green-light);background:rgba(82,183,136,.1)}
+        .hero-visual{position:relative;animation:fadeInRight 1s ease .3s forwards;opacity:0}
+        .hero-img-main{width:100%;max-width:500px;border-radius:30px;box-shadow:0 30px 80px rgba(0,0,0,.3);object-fit:cover;aspect-ratio:4/3}
+        .hero-img-float{position:absolute;width:180px;height:180px;border-radius:20px;object-fit:cover;box-shadow:0 15px 40px rgba(0,0,0,.3);border:4px solid rgba(255,255,255,.15)}
+        .hero-img-float.f1{bottom:-30px;left:-40px;animation:bobble 4s ease-in-out infinite}
+        .hero-img-float.f2{top:-20px;right:-30px;animation:bobble 4s ease-in-out infinite 1s;width:150px;height:150px;border-radius:50%}
+        @keyframes bobble{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+        .hero-stats{display:flex;gap:30px;margin-top:50px;animation:fadeInUp .8s ease .6s forwards;opacity:0}
+        .hero-stat{text-align:center}.hero-stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold)}
+        .hero-stat-label{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:4px}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes fadeInRight{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
 
-        /* SECTION COMMON */
-        section { padding: 100px 40px; }
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-        .section-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--green-main); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px; }
-        .section-tag::before, .section-tag::after { content: ''; width: 30px; height: 2px; background: linear-gradient(90deg, var(--green-light), transparent); }
-        .section-tag::after { background: linear-gradient(270deg, var(--green-light), transparent); }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--green-dark); margin-bottom: 16px; }
-        .section-header p { color: var(--text-gray); font-size: 1.05rem; line-height: 1.7; }
+        /* SECTIONS */
+        section{padding:100px 40px}
+        .section-header{text-align:center;max-width:700px;margin:0 auto 60px}
+        .section-tag{display:inline-flex;align-items:center;gap:8px;color:var(--green-main);font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:3px;margin-bottom:12px}
+        .section-tag::before,.section-tag::after{content:'';width:30px;height:2px;background:linear-gradient(90deg,var(--green-light),transparent)}
+        .section-tag::after{background:linear-gradient(270deg,var(--green-light),transparent)}
+        .section-header h2{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--green-dark);margin-bottom:16px}
+        .section-header p{color:var(--text-gray);font-size:1.05rem;line-height:1.7}
 
         /* ABOUT */
-        .about { background: var(--white); }
-        .about-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-        .about-images { position: relative; }
-        .about-img-1 { width: 85%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,.12); object-fit: cover; aspect-ratio: 4/3; }
-        .about-img-2 { position: absolute; bottom: -30px; right: 0; width: 55%; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,.15); border: 5px solid var(--white); object-fit: cover; aspect-ratio: 4/3; }
-        .about-content h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--green-dark); margin-bottom: 20px; line-height: 1.3; }
-        .about-content p { color: var(--text-gray); line-height: 1.8; margin-bottom: 15px; font-size: 1rem; }
-        .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
-        .about-highlight { display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--green-bg); border-radius: 12px; transition: all .3s; }
-        .about-highlight:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(45,106,79,.12); }
-        .about-highlight-icon { width: 44px; height: 44px; min-width: 44px; background: linear-gradient(135deg, var(--green-main), var(--green-light)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-        .about-highlight span { font-size: .9rem; font-weight: 600; color: var(--green-dark); }
+        .about{background:var(--white)}
+        .about-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+        .about-images{position:relative}.about-img-1{width:85%;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.12);object-fit:cover;aspect-ratio:4/3}
+        .about-img-2{position:absolute;bottom:-30px;right:0;width:55%;border-radius:16px;box-shadow:0 15px 40px rgba(0,0,0,.15);border:5px solid var(--white);object-fit:cover;aspect-ratio:4/3}
+        .about-content h3{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--green-dark);margin-bottom:20px;line-height:1.3}
+        .about-content p{color:var(--text-gray);line-height:1.8;margin-bottom:15px;font-size:1rem}
+        .about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+        .about-highlight{display:flex;align-items:center;gap:12px;padding:16px;background:var(--green-bg);border-radius:12px;transition:all .3s}
+        .about-highlight:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(45,106,79,.12)}
+        .about-highlight-icon{width:44px;height:44px;min-width:44px;background:linear-gradient(135deg,var(--green-main),var(--green-light));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .about-highlight span{font-size:.9rem;font-weight:600;color:var(--green-dark)}
 
         /* VISION */
-        .vision { background: linear-gradient(135deg, var(--green-dark), #0d3320); color: var(--white); }
-        .vision .section-tag { color: var(--green-pale); }
-        .vision .section-header h2 { color: var(--white); }
-        .vision .section-header p { color: rgba(255,255,255,.7); }
-        .vision-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .vision-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 24px; padding: 40px; transition: all .4s; position: relative; overflow: hidden; }
-        .vision-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--green-light), var(--gold)); }
-        .vision-card:hover { background: rgba(255,255,255,.08); transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0,0,0,.2); }
-        .vision-card-icon { width: 65px; height: 65px; background: linear-gradient(135deg, var(--green-light), var(--green-mid)); border-radius: 18px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 24px; }
-        .vision-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 16px; }
-        .vision-card p { color: rgba(255,255,255,.7); line-height: 1.8; font-size: .95rem; }
-        .values-grid { max-width: 1200px; margin: 40px auto 0; display: grid; grid-template-columns: repeat(5,1fr); gap: 20px; }
-        .value-item { text-align: center; padding: 30px 15px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; transition: all .3s; }
-        .value-item:hover { background: rgba(82,183,136,.1); border-color: rgba(82,183,136,.3); transform: translateY(-5px); }
-        .value-icon { font-size: 2rem; margin-bottom: 12px; }
-        .value-item h4 { font-size: .95rem; margin-bottom: 8px; color: var(--green-pale); }
-        .value-item p { font-size: .8rem; color: rgba(255,255,255,.5); line-height: 1.5; }
+        .vision{background:linear-gradient(135deg,var(--green-dark),#0d3320);color:var(--white)}
+        .vision .section-tag{color:var(--green-pale)}.vision .section-header h2{color:var(--white)}.vision .section-header p{color:rgba(255,255,255,.7)}
+        .vision-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+        .vision-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:40px;transition:all .4s;position:relative;overflow:hidden}
+        .vision-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--green-light),var(--gold))}
+        .vision-card:hover{background:rgba(255,255,255,.08);transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,.2)}
+        .vision-card-icon{width:65px;height:65px;background:linear-gradient(135deg,var(--green-light),var(--green-mid));border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:24px}
+        .vision-card h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:16px}
+        .vision-card p{color:rgba(255,255,255,.7);line-height:1.8;font-size:.95rem}
+        .values-grid{max-width:1200px;margin:40px auto 0;display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+        .value-item{text-align:center;padding:30px 15px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;transition:all .3s}
+        .value-item:hover{background:rgba(82,183,136,.1);border-color:rgba(82,183,136,.3);transform:translateY(-5px)}
+        .value-icon{font-size:2rem;margin-bottom:12px}.value-item h4{font-size:.95rem;margin-bottom:8px;color:var(--green-pale)}
+        .value-item p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
 
         /* PRODUCTS */
-        .products { background: var(--cream-dark); }
-        .product-categories { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
-        .cat-btn { padding: 10px 24px; border-radius: 50px; border: 2px solid var(--green-main); background: transparent; color: var(--green-main); font-weight: 600; font-size: .9rem; cursor: pointer; transition: all .3s; }
-        .cat-btn.active, .cat-btn:hover { background: var(--green-main); color: var(--white); }
-        .products-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
-        .product-card { background: var(--white); border-radius: 20px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,.06); transition: all .4s; position: relative; }
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,.12); }
-        .product-card-img { width: 100%; aspect-ratio: 1; object-fit: cover; transition: transform .5s; }
-        .product-card:hover .product-card-img { transform: scale(1.05); }
-        .product-card-badge { position: absolute; top: 16px; left: 16px; background: var(--green-main); color: var(--white); padding: 5px 14px; border-radius: 20px; font-size: .75rem; font-weight: 600; z-index: 2; }
-        .product-card-info { padding: 20px; }
-        .product-card-info h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--green-dark); margin-bottom: 6px; }
-        .product-card-info p { font-size: .85rem; color: var(--text-light); }
-        .product-card-info .size { font-size: .8rem; color: var(--brown); font-weight: 600; margin-top: 8px; }
+        .products{background:var(--cream-dark)}
+        .product-categories{display:flex;justify-content:center;gap:10px;margin-bottom:40px;flex-wrap:wrap}
+        .cat-btn{padding:10px 24px;border-radius:50px;border:2px solid var(--green-main);background:transparent;color:var(--green-main);font-weight:600;font-size:.9rem;cursor:pointer;transition:all .3s}
+        .cat-btn.active,.cat-btn:hover{background:var(--green-main);color:var(--white)}
+        .products-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+        .product-card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 5px 25px rgba(0,0,0,.06);transition:all .4s;position:relative}
+        .product-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.12)}
+        .product-card-img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .5s}
+        .product-card:hover .product-card-img{transform:scale(1.05)}
+        .product-card-badge{position:absolute;top:16px;left:16px;background:var(--green-main);color:var(--white);padding:5px 14px;border-radius:20px;font-size:.75rem;font-weight:600;z-index:2}
+        .product-card-info{padding:20px}.product-card-info h4{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--green-dark);margin-bottom:6px}
+        .product-card-info p{font-size:.85rem;color:var(--text-light)}.product-card-info .size{font-size:.8rem;color:var(--brown);font-weight:600;margin-top:8px}
 
         /* GALLERY */
-        .gallery { background: var(--white); }
-        .gallery-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); grid-auto-rows: 250px; gap: 16px; }
-        .gallery-item { border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-item .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,71,42,.7), transparent); opacity: 0; transition: opacity .3s; display: flex; align-items: flex-end; padding: 20px; }
-        .gallery-item:hover .overlay { opacity: 1; }
-        .gallery-item .overlay span { color: var(--white); font-weight: 600; font-size: .95rem; }
-        .gallery-item.tall { grid-row: span 2; }
-        .gallery-item.wide { grid-column: span 2; }
+        .gallery{background:var(--white)}
+        .gallery-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;gap:16px}
+        .gallery-item{border-radius:16px;overflow:hidden;position:relative;cursor:pointer}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        .gallery-item:hover img{transform:scale(1.1)}
+        .gallery-item .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,71,42,.7),transparent);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:20px}
+        .gallery-item:hover .overlay{opacity:1}.gallery-item .overlay span{color:var(--white);font-weight:600;font-size:.95rem}
+        .gallery-item.tall{grid-row:span 2}.gallery-item.wide{grid-column:span 2}
 
         /* PROCESS */
-        .process { background: var(--green-bg); }
-        .process-timeline { max-width: 1000px; margin: 0 auto; position: relative; }
-        .process-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--green-light), var(--green-dark)); transform: translateX(-50%); }
-        .process-step { display: flex; align-items: center; gap: 40px; margin-bottom: 50px; position: relative; }
-        .process-step:nth-child(even) { flex-direction: row-reverse; }
-        .process-step-content { flex: 1; background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,.06); transition: all .3s; }
-        .process-step-content:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,.1); }
-        .process-step-num { position: absolute; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, var(--green-main), var(--green-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 700; font-size: 1.1rem; z-index: 2; border: 4px solid var(--green-bg); }
-        .process-step-content h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--green-dark); margin-bottom: 8px; }
-        .process-step-content p { color: var(--text-gray); font-size: .9rem; line-height: 1.7; }
-        .process-step .spacer { flex: 1; }
-
-        /* TECHNOLOGY */
-        .technology { background: var(--white); }
-        .tech-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; }
-        .tech-card { padding: 35px; background: var(--cream-dark); border-radius: 20px; text-align: center; border: 1px solid rgba(45,106,79,.08); transition: all .4s; }
-        .tech-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,.08); border-color: var(--green-light); }
-        .tech-icon { width: 70px; height: 70px; margin: 0 auto 20px; background: linear-gradient(135deg, var(--green-main), var(--green-light)); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; }
-        .tech-card h4 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--green-dark); margin-bottom: 10px; }
-        .tech-card p { font-size: .9rem; color: var(--text-gray); line-height: 1.6; }
+        .process{background:var(--green-bg)}
+        .process-timeline{max-width:1000px;margin:0 auto;position:relative}
+        .process-timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--green-light),var(--green-dark));transform:translateX(-50%)}
+        .process-step{display:flex;align-items:center;gap:40px;margin-bottom:50px;position:relative}
+        .process-step:nth-child(even){flex-direction:row-reverse}
+        .process-step-content{flex:1;background:var(--white);padding:30px;border-radius:20px;box-shadow:0 8px 30px rgba(0,0,0,.06);transition:all .3s}
+        .process-step-content:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.1)}
+        .process-step-num{position:absolute;left:50%;transform:translateX(-50%);width:50px;height:50px;background:linear-gradient(135deg,var(--green-main),var(--green-light));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:1.1rem;z-index:2;border:4px solid var(--green-bg)}
+        .process-step-content h4{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--green-dark);margin-bottom:8px}
+        .process-step-content p{color:var(--text-gray);font-size:.9rem;line-height:1.7}.process-step .spacer{flex:1}
 
         /* FACTORY */
-        .factory { background: linear-gradient(135deg, #f8f9fa, var(--cream-dark)); }
-        .factory-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .factory-card { border-radius: 24px; overflow: hidden; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,.08); }
-        .factory-card img { width: 100%; height: 350px; object-fit: cover; transition: transform .5s; }
-        .factory-card:hover img { transform: scale(1.05); }
-        .factory-card-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(26,71,42,.9), transparent); padding: 30px 24px 20px; color: var(--white); }
-        .factory-card-caption h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 4px; }
-        .factory-card-caption p { font-size: .85rem; opacity: .8; }
+        .factory{background:linear-gradient(135deg,#f8f9fa,var(--cream-dark))}
+        .factory-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+        .factory-card{border-radius:24px;overflow:hidden;position:relative;box-shadow:0 10px 40px rgba(0,0,0,.08);cursor:pointer}
+        .factory-card img{width:100%;height:350px;object-fit:cover;transition:transform .5s}
+        .factory-card:hover img{transform:scale(1.05)}
+        .factory-card-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(26,71,42,.9),transparent);padding:30px 24px 20px;color:var(--white)}
+        .factory-card-caption h4{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:4px}
+        .factory-card-caption p{font-size:.85rem;opacity:.8}
 
         /* TESTIMONIALS */
-        .testimonials { background: linear-gradient(135deg, var(--cream), var(--cream-dark)); }
-        .testimonials-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
-        .testimonial-card { background: var(--white); border-radius: 20px; padding: 30px; box-shadow: 0 5px 25px rgba(0,0,0,.06); transition: all .3s; border: 1px solid rgba(45,106,79,.06); }
-        .testimonial-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,.1); }
-        .testimonial-stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 12px; letter-spacing: 2px; }
-        .testimonial-text { color: var(--text-gray); font-size: .95rem; line-height: 1.7; font-style: italic; margin-bottom: 20px; }
-        .testimonial-author { display: flex; align-items: center; gap: 14px; }
-        .testimonial-avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--green-main), var(--green-light)); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--white); font-weight: 700; }
-        .testimonial-info h5 { font-size: .95rem; color: var(--green-dark); font-weight: 700; }
-        .testimonial-info p { font-size: .8rem; color: var(--text-light); }
-        .testimonial-flag { font-size: 1.4rem; margin-left: auto; }
+        .testimonials{background:linear-gradient(135deg,var(--cream),var(--cream-dark))}
+        .testimonials-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+        .testimonial-card{background:var(--white);border-radius:20px;padding:30px;box-shadow:0 5px 25px rgba(0,0,0,.06);transition:all .3s;border:1px solid rgba(45,106,79,.06)}
+        .testimonial-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.1)}
+        .testimonial-stars{color:var(--gold);font-size:1.1rem;margin-bottom:12px;letter-spacing:2px}
+        .testimonial-text{color:var(--text-gray);font-size:.95rem;line-height:1.7;font-style:italic;margin-bottom:20px}
+        .testimonial-author{display:flex;align-items:center;gap:14px}
+        .testimonial-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--green-main),var(--green-light));display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--white);font-weight:700}
+        .testimonial-info h5{font-size:.95rem;color:var(--green-dark);font-weight:700}
+        .testimonial-info p{font-size:.8rem;color:var(--text-light)}.testimonial-flag{font-size:1.4rem;margin-left:auto}
 
         /* CERTIFICATES */
-        .certificates { background: var(--green-dark); color: var(--white); }
-        .certificates .section-tag { color: var(--green-pale); }
-        .certificates .section-header h2 { color: var(--white); }
-        .certificates .section-header p { color: rgba(255,255,255,.7); }
-        .cert-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
-        .cert-card { text-align: center; padding: 35px 20px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 20px; transition: all .4s; }
-        .cert-card:hover { background: rgba(255,255,255,.1); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,.2); }
-        .cert-card-icon { width: 80px; height: 80px; margin: 0 auto 20px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
-        .cert-card h4 { font-size: 1.1rem; margin-bottom: 8px; color: var(--green-pale); }
-        .cert-card p { font-size: .83rem; color: rgba(255,255,255,.6); line-height: 1.5; }
-        .cert-image-section { max-width: 1100px; margin: 50px auto 0; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .cert-photo { width: 250px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.3); border: 4px solid rgba(255,255,255,.15); transition: all .3s; cursor: pointer; }
-        .cert-photo:hover { transform: scale(1.05) rotate(-2deg); }
+        .certificates{background:var(--green-dark);color:var(--white)}
+        .certificates .section-tag{color:var(--green-pale)}.certificates .section-header h2{color:var(--white)}.certificates .section-header p{color:rgba(255,255,255,.7)}
+        .cert-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+        .cert-card{text-align:center;padding:35px 20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;transition:all .4s}
+        .cert-card:hover{background:rgba(255,255,255,.1);transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.2)}
+        .cert-card-icon{width:80px;height:80px;margin:0 auto 20px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem}
+        .cert-card h4{font-size:1.1rem;margin-bottom:8px;color:var(--green-pale)}
+        .cert-card p{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.5}
+        .cert-files{max-width:1100px;margin:50px auto 0;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;align-items:flex-start}
+        .cert-photo{width:250px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.3);border:4px solid rgba(255,255,255,.15);transition:all .3s;cursor:pointer}
+        .cert-photo:hover{transform:scale(1.05) rotate(-2deg)}
+        .cert-pdf-link{display:flex;flex-direction:column;align-items:center;gap:12px;padding:30px 25px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;text-decoration:none;color:var(--white);transition:all .3s;width:220px;text-align:center}
+        .cert-pdf-link:hover{background:rgba(255,255,255,.15);transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.2)}
+        .cert-pdf-icon{width:70px;height:70px;background:linear-gradient(135deg,#e74c3c,#c0392b);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--white)}
+        .cert-pdf-link h5{font-size:.95rem;line-height:1.4}.cert-pdf-link span{font-size:.75rem;color:var(--green-pale);background:rgba(82,183,136,.2);padding:4px 12px;border-radius:20px}
 
         /* CAPACITY */
-        .capacity { background: var(--cream-dark); }
-        .capacity-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
-        .capacity-card { background: var(--white); border-radius: 20px; padding: 35px 20px; text-align: center; box-shadow: 0 5px 25px rgba(0,0,0,.05); transition: all .3s; border: 1px solid transparent; }
-        .capacity-card:hover { border-color: var(--green-light); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(45,106,79,.12); }
-        .capacity-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, var(--green-main), var(--green-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .capacity-card h4 { font-size: .95rem; color: var(--green-dark); margin: 8px 0 6px; font-weight: 600; }
-        .capacity-card p { font-size: .83rem; color: var(--text-light); line-height: 1.5; }
+        .capacity{background:var(--cream-dark)}
+        .capacity-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+        .capacity-card{background:var(--white);border-radius:20px;padding:35px 20px;text-align:center;box-shadow:0 5px 25px rgba(0,0,0,.05);transition:all .3s;border:1px solid transparent}
+        .capacity-card:hover{border-color:var(--green-light);transform:translateY(-5px);box-shadow:0 15px 40px rgba(45,106,79,.12)}
+        .capacity-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:800;background:linear-gradient(135deg,var(--green-main),var(--green-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .capacity-card h4{font-size:.95rem;color:var(--green-dark);margin:8px 0 6px;font-weight:600}
+        .capacity-card p{font-size:.83rem;color:var(--text-light);line-height:1.5}
 
         /* CONTACT */
-        .contact { background: var(--white); }
-        .contact-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-        .contact-info-card { background: linear-gradient(135deg, var(--green-dark), var(--green-main)); border-radius: 24px; padding: 50px; color: var(--white); position: relative; overflow: hidden; }
-        .contact-info-card::before { content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: radial-gradient(circle, rgba(82,183,136,.15), transparent); }
-        .contact-info-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 8px; position: relative; }
-        .contact-info-card > p { color: rgba(255,255,255,.7); margin-bottom: 35px; position: relative; }
-        .contact-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 25px; position: relative; }
-        .contact-item-icon { width: 48px; height: 48px; min-width: 48px; background: rgba(255,255,255,.1); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-        .contact-item-text h4 { font-size: .85rem; color: var(--green-pale); margin-bottom: 4px; font-weight: 600; }
-        .contact-item-text p { font-size: .95rem; color: var(--white); line-height: 1.5; }
-        .contact-form { background: var(--cream-dark); border-radius: 24px; padding: 50px; }
-        .contact-form h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--green-dark); margin-bottom: 25px; }
-        .form-group { margin-bottom: 18px; }
-        .form-group label { display: block; font-size: .85rem; font-weight: 600; color: var(--green-dark); margin-bottom: 6px; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px 18px; border: 2px solid #e0e0e0; border-radius: 12px; font-family: 'Inter', sans-serif; font-size: .95rem; transition: border-color .3s; background: var(--white); outline: none; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--green-light); }
-        .form-group textarea { height: 120px; resize: vertical; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .form-submit { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--green-main), var(--green-light)); color: var(--white); border: none; border-radius: 12px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all .3s; margin-top: 10px; }
-        .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(45,106,79,.3); }
+        .contact{background:var(--white)}
+        .contact-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+        .contact-info-card{background:linear-gradient(135deg,var(--green-dark),var(--green-main));border-radius:24px;padding:50px;color:var(--white);position:relative;overflow:hidden}
+        .contact-info-card::before{content:'';position:absolute;top:-50%;right:-50%;width:100%;height:100%;background:radial-gradient(circle,rgba(82,183,136,.15),transparent)}
+        .contact-info-card h3{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:8px;position:relative}
+        .contact-info-card>p{color:rgba(255,255,255,.7);margin-bottom:35px;position:relative}
+        .contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:25px;position:relative}
+        .contact-item-icon{width:48px;height:48px;min-width:48px;background:rgba(255,255,255,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+        .contact-item-text h4{font-size:.85rem;color:var(--green-pale);margin-bottom:4px;font-weight:600}
+        .contact-item-text p{font-size:.95rem;color:var(--white);line-height:1.5}
+        .contact-form{background:var(--cream-dark);border-radius:24px;padding:50px}
+        .contact-form h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--green-dark);margin-bottom:25px}
+        .form-group{margin-bottom:18px}.form-group label{display:block;font-size:.85rem;font-weight:600;color:var(--green-dark);margin-bottom:6px}
+        .form-group input,.form-group textarea,.form-group select{width:100%;padding:14px 18px;border:2px solid #e0e0e0;border-radius:12px;font-family:'Inter',sans-serif;font-size:.95rem;transition:border-color .3s;background:var(--white);outline:none}
+        .form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--green-light)}
+        .form-group textarea{height:120px;resize:vertical}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        .form-submit{width:100%;padding:16px;background:linear-gradient(135deg,var(--green-main),var(--green-light));color:var(--white);border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;transition:all .3s;margin-top:10px}
+        .form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(45,106,79,.3)}
 
         /* FOOTER */
-        .footer { background: linear-gradient(135deg, #0a1f13, var(--green-dark)); color: var(--white); padding: 80px 40px 30px; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 50px; margin-bottom: 50px; }
-        .footer-brand .brand-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 6px; }
-        .footer-brand .brand-slogan { font-family: 'Dancing Script', cursive; font-size: 1.1rem; color: var(--gold); margin-bottom: 16px; }
-        .footer-brand p { color: rgba(255,255,255,.6); font-size: .9rem; line-height: 1.7; }
-        .footer h4 { font-size: 1rem; font-weight: 700; margin-bottom: 20px; color: var(--green-pale); text-transform: uppercase; letter-spacing: 1px; }
-        .footer ul { list-style: none; }
-        .footer ul li { margin-bottom: 10px; }
-        .footer ul a { color: rgba(255,255,255,.6); text-decoration: none; font-size: .9rem; transition: color .3s; }
-        .footer ul a:hover { color: var(--green-light); }
-        .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
-        .footer-contact-item span:first-child { font-size: 1.1rem; min-width: 24px; }
-        .footer-contact-item span:last-child { color: rgba(255,255,255,.7); font-size: .9rem; line-height: 1.5; }
-        .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 30px; border-top: 1px solid rgba(255,255,255,.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-        .footer-bottom p { color: rgba(255,255,255,.4); font-size: .85rem; }
-        .footer-social { display: flex; gap: 12px; }
-        .footer-social a { width: 40px; height: 40px; background: rgba(255,255,255,.08); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; font-size: 1.1rem; transition: all .3s; }
-        .footer-social a:hover { background: var(--green-light); transform: translateY(-3px); }
+        .footer{background:linear-gradient(135deg,#0a1f13,var(--green-dark));color:var(--white);padding:80px 40px 30px}
+        .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:50px;margin-bottom:50px}
+        .footer-brand .brand-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;margin-bottom:6px}
+        .footer-brand .brand-slogan{font-family:'Dancing Script',cursive;font-size:1.1rem;color:var(--gold);margin-bottom:16px}
+        .footer-brand p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.7}
+        .footer h4{font-size:1rem;font-weight:700;margin-bottom:20px;color:var(--green-pale);text-transform:uppercase;letter-spacing:1px}
+        .footer ul{list-style:none}.footer ul li{margin-bottom:10px}
+        .footer ul a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem;transition:color .3s}
+        .footer ul a:hover{color:var(--green-light)}
+        .footer-contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px}
+        .footer-contact-item span:first-child{font-size:1.1rem;min-width:24px}
+        .footer-contact-item span:last-child{color:rgba(255,255,255,.7);font-size:.9rem;line-height:1.5}
+        .footer-bottom{max-width:1200px;margin:0 auto;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+        .footer-bottom p{color:rgba(255,255,255,.4);font-size:.85rem}
+        .footer-social{display:flex;gap:12px}
+        .footer-social a{width:40px;height:40px;background:rgba(255,255,255,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--white);text-decoration:none;font-size:1.1rem;transition:all .3s}
+        .footer-social a:hover{background:var(--green-light);transform:translateY(-3px)}
 
-        /* SCROLL TOP */
-        .scroll-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: linear-gradient(135deg, var(--green-main), var(--green-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 1.3rem; cursor: pointer; border: none; opacity: 0; visibility: hidden; transition: all .3s; z-index: 999; box-shadow: 0 5px 20px rgba(45,106,79,.3); }
-        .scroll-top.visible { opacity: 1; visibility: visible; }
-        .scroll-top:hover { transform: translateY(-3px); }
-
-        /* LIGHTBOX */
-        .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.92); z-index: 10000; display: none; align-items: center; justify-content: center; }
-        .lightbox.active { display: flex; }
-        .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 16px; object-fit: contain; }
-        .lightbox-close { position: absolute; top: 20px; right: 30px; background: none; border: none; color: var(--white); font-size: 2.5rem; cursor: pointer; }
-
-        /* REVEAL */
-        .reveal { opacity: 0; transform: translateY(40px); transition: opacity .8s ease, transform .8s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .scroll-top{position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:linear-gradient(135deg,var(--green-main),var(--green-light));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.3rem;cursor:pointer;border:none;opacity:0;visibility:hidden;transition:all .3s;z-index:999;box-shadow:0 5px 20px rgba(45,106,79,.3)}
+        .scroll-top.visible{opacity:1;visibility:visible}.scroll-top:hover{transform:translateY(-3px)}
+        .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10000;display:none;align-items:center;justify-content:center}
+        .lightbox.active{display:flex}.lightbox img{max-width:90%;max-height:90vh;border-radius:16px;object-fit:contain}
+        .lightbox-close{position:absolute;top:20px;right:30px;background:none;border:none;color:var(--white);font-size:2.5rem;cursor:pointer}
+        .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 
         /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero-content { max-width: 100%; }
-            .hero-visual { display: none; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero-btns, .hero-stats { justify-content: center; }
-            .about-grid, .vision-grid, .contact-grid { grid-template-columns: 1fr; }
-            .about-grid { gap: 50px; }
-            .values-grid { grid-template-columns: repeat(3,1fr); }
-            .products-grid { grid-template-columns: repeat(3,1fr); }
-            .gallery-grid { grid-template-columns: repeat(3,1fr); }
-            .tech-grid, .testimonials-grid { grid-template-columns: repeat(2,1fr); }
-            .cert-grid, .capacity-grid { grid-template-columns: repeat(2,1fr); }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+        @media(max-width:1024px){
+            .hero-container{grid-template-columns:1fr;text-align:center}.hero-content{max-width:100%}.hero-visual{display:none}
+            .hero h1{font-size:2.8rem}.hero-btns,.hero-stats{justify-content:center}
+            .about-grid,.vision-grid,.contact-grid{grid-template-columns:1fr}.about-grid{gap:50px}
+            .values-grid{grid-template-columns:repeat(3,1fr)}.products-grid{grid-template-columns:repeat(3,1fr)}
+            .gallery-grid{grid-template-columns:repeat(3,1fr)}.tech-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
+            .cert-grid,.capacity-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}
         }
-        @media (max-width: 768px) {
-            section { padding: 70px 20px; }
-            .navbar { padding: 0 20px; }
-            .nav-links { position: fixed; top: 70px; left: 0; width: 100%; background: rgba(26,71,42,.98); flex-direction: column; padding: 20px; transform: translateY(-120%); transition: transform .4s; z-index: 999; }
-            .nav-links.active { transform: translateY(0); }
-            .hamburger { display: flex; }
-            .hero { padding-top: 70px; min-height: auto; padding-bottom: 60px; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero-slogan { font-size: 1.5rem; }
-            .section-header h2 { font-size: 2rem; }
-            .products-grid { grid-template-columns: repeat(2,1fr); gap: 16px; }
-            .gallery-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows: 200px; }
-            .gallery-item.tall, .gallery-item.wide { grid-row: span 1; grid-column: span 1; }
-            .tech-grid, .factory-grid, .cert-grid, .testimonials-grid { grid-template-columns: 1fr; }
-            .capacity-grid { grid-template-columns: repeat(2,1fr); }
-            .values-grid { grid-template-columns: repeat(2,1fr); }
-            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-            .footer-bottom { justify-content: center; text-align: center; }
-            .about-highlights, .form-row { grid-template-columns: 1fr; }
-            .process-timeline::before { left: 25px; }
-            .process-step { flex-direction: column !important; gap: 20px; padding-left: 60px; }
-            .process-step-num { left: 25px !important; top: 0; transform: translateX(-50%); }
-            .process-step .spacer { display: none; }
+        @media(max-width:768px){
+            section{padding:70px 20px}.navbar{padding:0 15px}
+            .nav-links{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(26,71,42,.98);flex-direction:column;padding:100px 30px 30px;transform:translateX(100%);transition:transform .4s ease;z-index:1001;gap:8px;justify-content:flex-start;overflow-y:auto}
+            .nav-links.active{transform:translateX(0)}
+            .nav-links a{font-size:1.1rem;padding:14px 20px;width:100%;text-align:left;border-bottom:1px solid rgba(255,255,255,.08)}
+            .nav-links li:last-child{margin-top:10px}
+            .lang-switch{margin-left:0;margin-top:10px}
+            .hamburger{display:flex}
+            .hero{padding-top:70px;min-height:auto;padding-bottom:60px}.hero h1{font-size:2.2rem}.hero-slogan{font-size:1.5rem}
+            .section-header h2{font-size:2rem}.products-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+            .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+            .gallery-item.tall,.gallery-item.wide{grid-row:span 1;grid-column:span 1}
+            .factory-grid,.cert-grid,.testimonials-grid{grid-template-columns:1fr}
+            .capacity-grid{grid-template-columns:repeat(2,1fr)}.values-grid{grid-template-columns:repeat(2,1fr)}
+            .footer-grid{grid-template-columns:1fr;gap:30px}.footer-bottom{justify-content:center;text-align:center}
+            .about-highlights,.form-row{grid-template-columns:1fr}
+            .process-timeline::before{left:25px}
+            .process-step{flex-direction:column!important;gap:20px;padding-left:60px}
+            .process-step-num{left:25px!important;top:0;transform:translateX(-50%)}.process-step .spacer{display:none}
         }
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 1.8rem; }
-            .hero-slogan { font-size: 1.2rem; }
-            .hero-btns { flex-direction: column; align-items: center; }
-            .hero-stats { flex-wrap: wrap; gap: 20px; }
-            .products-grid, .capacity-grid { grid-template-columns: 1fr 1fr; }
-            .section-header h2 { font-size: 1.7rem; }
+        @media(max-width:480px){
+            .hero h1{font-size:1.8rem}.hero-slogan{font-size:1.2rem}
+            .hero-btns{flex-direction:column;align-items:center}.hero-stats{flex-wrap:wrap;gap:20px}
+            .products-grid,.capacity-grid{grid-template-columns:1fr 1fr}.section-header h2{font-size:1.7rem}
         }
     </style>
 </head>
 <body>
 
-<!-- Loader -->
-<div class="loader" id="loader"><div><div class="loader-leaf"></div><div class="loader-text">DAT TO STAR ECO</div></div></div>
+<div class="loader" id="loader"><div><div class="loader-leaf"></div><div class="loader-text">ĐẤT TỔ STAR ECO</div></div></div>
 
 <!-- Navbar -->
 <nav class="navbar" id="navbar">
@@ -352,18 +286,19 @@
         <a href="#hero" class="nav-logo">
             <div class="nav-logo-icon">&#127807;</div>
             <div class="nav-logo-text">
-                <div class="brand">Dat To Star Eco</div>
-                <div class="slogan" data-vi="Xanh Hoa Tuong Lai Viet" data-en="Greening Vietnam's Future">Xanh Hoa Tuong Lai Viet</div>
+                <div class="brand">Đất Tổ Star Eco</div>
+                <div class="slogan" data-vi="Xanh Hoá Tương Lai Việt" data-en="Greening Vietnam's Future">Xanh Hoá Tương Lai Việt</div>
             </div>
         </a>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#hero" class="active" data-vi="Trang chu" data-en="Home">Trang chu</a></li>
-            <li><a href="#about" data-vi="Gioi thieu" data-en="About">Gioi thieu</a></li>
-            <li><a href="#products" data-vi="San pham" data-en="Products">San pham</a></li>
-            <li><a href="#process" data-vi="Quy trinh" data-en="Process">Quy trinh</a></li>
-            <li><a href="#testimonials" data-vi="Danh gia" data-en="Reviews">Danh gia</a></li>
-            <li><a href="#certificates" data-vi="Chung nhan" data-en="Certificates">Chung nhan</a></li>
-            <li><a href="#contact" class="nav-cta" data-vi="Lien he" data-en="Contact">Lien he</a></li>
+            <li><a href="#hero" class="active" data-vi="Trang chủ" data-en="Home">Trang chủ</a></li>
+            <li><a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li>
+            <li><a href="#products" data-vi="Sản phẩm" data-en="Products">Sản phẩm</a></li>
+            <li><a href="#process" data-vi="Quy trình" data-en="Process">Quy trình</a></li>
+            <li><a href="#testimonials" data-vi="Đánh giá" data-en="Reviews">Đánh giá</a></li>
+            <li><a href="#certificates" data-vi="Chứng nhận" data-en="Certificates">Chứng nhận</a></li>
+            <li><a href="#contact" class="nav-cta" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
             <li>
                 <div class="lang-switch">
                     <button class="lang-btn active" onclick="switchLang('vi')">VI</button>
@@ -371,39 +306,33 @@
                 </div>
             </li>
         </ul>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
     </div>
 </nav>
 
 <!-- Hero -->
 <section class="hero" id="hero">
     <div class="hero-bg-pattern"></div>
-    <div class="hero-floating"></div>
-    <div class="hero-floating"></div>
-    <div class="hero-floating"></div>
+    <div class="hero-floating"></div><div class="hero-floating"></div><div class="hero-floating"></div>
     <div class="hero-container">
         <div class="hero-content">
-            <div class="hero-badge">
-                <span class="hero-badge-dot"></span>
-                <span data-vi="San pham sinh hoc tu thien nhien" data-en="Eco-friendly products from nature">San pham sinh hoc tu thien nhien</span>
-            </div>
-            <h1><span class="highlight">Dat To Star Eco</span><br><span data-vi="Xanh Hoa" data-en="Greening">Xanh Hoa</span><br><span data-vi="Tuong Lai Viet" data-en="Vietnam's Future">Tuong Lai Viet</span></h1>
-            <div class="hero-slogan">&#10024; <span data-vi="Xanh Hoa Tuong Lai Viet" data-en="Greening Vietnam's Future">Xanh Hoa Tuong Lai Viet</span> &#10024;</div>
-            <p data-vi="Chuyen san xuat bat, dia, khay sinh hoc tu mo cau va la tu nhien — thay the do nhua dung mot lan. 100% nguyen lieu tu nhien, an toan thuc pham, than thien moi truong." data-en="Specializing in producing eco-friendly bowls, plates, and trays from areca palm sheaths and natural leaves — replacing single-use plastics. 100% natural materials, food-safe, environmentally friendly.">Chuyen san xuat bat, dia, khay sinh hoc tu mo cau va la tu nhien — thay the do nhua dung mot lan. 100% nguyen lieu tu nhien, an toan thuc pham, than thien moi truong.</p>
+            <div class="hero-badge"><span class="hero-badge-dot"></span><span data-vi="Sản phẩm sinh học từ thiên nhiên" data-en="Eco-friendly products from nature">Sản phẩm sinh học từ thiên nhiên</span></div>
+            <h1><span class="highlight">Đất Tổ Star Eco</span><br><span data-vi="Xanh Hoá" data-en="Greening">Xanh Hoá</span><br><span data-vi="Tương Lai Việt" data-en="Vietnam's Future">Tương Lai Việt</span></h1>
+            <div class="hero-slogan">&#10024; <span data-vi="Xanh Hoá Tương Lai Việt" data-en="Greening Vietnam's Future">Xanh Hoá Tương Lai Việt</span> &#10024;</div>
+            <p data-vi="Chuyên sản xuất bát, đĩa, khay sinh học từ mo cau và lá tự nhiên — thay thế đồ nhựa dùng một lần. 100% nguyên liệu tự nhiên, an toàn thực phẩm, thân thiện môi trường." data-en="Specializing in producing eco-friendly bowls, plates, and trays from areca palm sheaths and natural leaves — replacing single-use plastics. 100% natural materials, food-safe, environmentally friendly.">Chuyên sản xuất bát, đĩa, khay sinh học từ mo cau và lá tự nhiên — thay thế đồ nhựa dùng một lần. 100% nguyên liệu tự nhiên, an toàn thực phẩm, thân thiện môi trường.</p>
             <div class="hero-btns">
-                <a href="#products" class="btn-primary" data-vi="Kham pha san pham &#8594;" data-en="Explore Products &#8594;">Kham pha san pham &#8594;</a>
-                <a href="#about" class="btn-outline" data-vi="&#9658; Tim hieu them" data-en="&#9658; Learn More">&#9658; Tim hieu them</a>
+                <a href="#products" class="btn-primary" data-vi="Khám phá sản phẩm &#8594;" data-en="Explore Products &#8594;">Khám phá sản phẩm &#8594;</a>
+                <a href="#about" class="btn-outline" data-vi="&#9658; Tìm hiểu thêm" data-en="&#9658; Learn More">&#9658; Tìm hiểu thêm</a>
             </div>
             <div class="hero-stats">
-                <div class="hero-stat"><div class="hero-stat-num">150K+</div><div class="hero-stat-label" data-vi="San pham/thang" data-en="Products/month">San pham/thang</div></div>
-                <div class="hero-stat"><div class="hero-stat-num">1500m&#178;</div><div class="hero-stat-label" data-vi="Nha xuong" data-en="Factory">Nha xuong</div></div>
-                <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label" data-vi="Tu nhien" data-en="Natural">Tu nhien</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">150K+</div><div class="hero-stat-label" data-vi="Sản phẩm/tháng" data-en="Products/month">Sản phẩm/tháng</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">1500m&#178;</div><div class="hero-stat-label" data-vi="Nhà xưởng" data-en="Factory">Nhà xưởng</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label" data-vi="Tự nhiên" data-en="Natural">Tự nhiên</div></div>
             </div>
         </div>
         <div class="hero-visual">
-            <img src="ảnh sản phẩm/IMG_1773911355782_1773919062034.jpg" alt="Dat To Star Eco Products" class="hero-img-main">
-            <img src="ảnh sản phẩm/IMG_1773911290265_1773919103449.jpg" alt="Spoons" class="hero-img-float f1">
-            <img src="ảnh sản phẩm/IMG_1773911291390_1773919110432.jpg" alt="Heart bowls" class="hero-img-float f2">
+            <img src="ảnh sản phẩm/IMG_1773911355782_1773919062034.jpg" alt="Sản phẩm Đất Tổ Star Eco" class="hero-img-main">
+            <img src="ảnh sản phẩm/IMG_1773911290265_1773919103449.jpg" alt="Thìa mo cau" class="hero-img-float f1">
+            <img src="ảnh sản phẩm/IMG_1773911291390_1773919110432.jpg" alt="Chén trái tim" class="hero-img-float f2">
         </div>
     </div>
 </section>
@@ -411,24 +340,24 @@
 <!-- About -->
 <section class="about" id="about">
     <div class="section-header reveal">
-        <div class="section-tag" data-vi="Ve chung toi" data-en="About Us">Ve chung toi</div>
-        <h2 data-vi="HTX Sinh Thai Dat To Star Eco" data-en="Dat To Star Eco Cooperative">HTX Sinh Thai Dat To Star Eco</h2>
-        <p data-vi="Tien phong trong san xuat san pham sinh hoc tu la cay tu nhien tai Phu Tho, Viet Nam" data-en="Pioneering the production of bio-products from natural leaves in Phu Tho, Vietnam">Tien phong trong san xuat san pham sinh hoc tu la cay tu nhien tai Phu Tho, Viet Nam</p>
+        <div class="section-tag" data-vi="Về chúng tôi" data-en="About Us">Về chúng tôi</div>
+        <h2 data-vi="HTX Sinh Thái Đất Tổ Star Eco" data-en="Dat To Star Eco Cooperative">HTX Sinh Thái Đất Tổ Star Eco</h2>
+        <p data-vi="Tiên phong trong sản xuất sản phẩm sinh học từ lá cây tự nhiên tại Phú Thọ, Việt Nam" data-en="Pioneering the production of bio-products from natural leaves in Phu Tho, Vietnam">Tiên phong trong sản xuất sản phẩm sinh học từ lá cây tự nhiên tại Phú Thọ, Việt Nam</p>
     </div>
     <div class="about-grid">
         <div class="about-images reveal">
-            <img src="ảnh sản phẩm/IMG_1773911289886_1773919101515.jpg" alt="Factory" class="about-img-1">
-            <img src="ảnh sản phẩm/42870689684719742261.jpg" alt="Raw materials" class="about-img-2">
+            <img src="ảnh sản phẩm/IMG_1773911289886_1773919101515.jpg" alt="Xưởng sản xuất" class="about-img-1">
+            <img src="ảnh sản phẩm/42870689684719742261.jpg" alt="Thu mua nguyên liệu" class="about-img-2">
         </div>
         <div class="about-content reveal">
-            <h3 data-vi="Tu mang dat To linh thieng, vuon tam the gioi" data-en="From the sacred Ancestral Land, reaching the world">Tu mang dat To linh thieng, vuon tam the gioi</h3>
-            <p data-vi="Thanh lap nam 2025, HTX Sinh Thai Dat To Star Eco da khong ngung phat trien va khang dinh vi the trong nganh san xuat san pham sinh hoc bao bi tiep xuc voi thuc pham than thien moi truong tu mo cau, be tre, la tu nhien." data-en="Established in 2025, Dat To Star Eco Cooperative has continuously developed and affirmed its position in producing eco-friendly food-contact bio-packaging from areca palm sheaths, bamboo sheaths, and natural leaves.">Thanh lap nam 2025, HTX Sinh Thai Dat To Star Eco da khong ngung phat trien va khang dinh vi the trong nganh san xuat san pham sinh hoc bao bi tiep xuc voi thuc pham than thien moi truong tu mo cau, be tre, la tu nhien.</p>
-            <p data-vi="Voi tam huyet va no luc khong ngung, chung toi da xay dung mot thuong hieu uy tin. Day chuyen san xuat ban tu dong voi he thong may moc tien tien, dam bao san pham dat chuan sinh hoc." data-en="With passion and relentless effort, we have built a trusted brand. Our semi-automated production line with advanced machinery ensures products meet bio-standards.">Voi tam huyet va no luc khong ngung, chung toi da xay dung mot thuong hieu uy tin. Day chuyen san xuat ban tu dong voi he thong may moc tien tien, dam bao san pham dat chuan sinh hoc.</p>
+            <h3 data-vi="Từ mảnh đất Tổ linh thiêng, vươn tầm thế giới" data-en="From the sacred Ancestral Land, reaching the world">Từ mảnh đất Tổ linh thiêng, vươn tầm thế giới</h3>
+            <p data-vi="Thành lập năm 2025, HTX Sinh Thái Đất Tổ Star Eco đã không ngừng phát triển và khẳng định vị thế trong ngành sản xuất sản phẩm sinh học bao bì tiếp xúc với thực phẩm thân thiện môi trường từ mo cau, bẹ tre, lá tự nhiên." data-en="Established in 2025, Dat To Star Eco Cooperative has continuously developed and affirmed its position in producing eco-friendly food-contact bio-packaging from areca palm sheaths, bamboo sheaths, and natural leaves.">Thành lập năm 2025, HTX Sinh Thái Đất Tổ Star Eco đã không ngừng phát triển và khẳng định vị thế trong ngành sản xuất sản phẩm sinh học bao bì tiếp xúc với thực phẩm thân thiện môi trường từ mo cau, bẹ tre, lá tự nhiên.</p>
+            <p data-vi="Với tâm huyết và nỗ lực không ngừng, chúng tôi đã xây dựng một thương hiệu uy tín. Dây chuyền sản xuất bán tự động với hệ thống máy móc tiên tiến, đảm bảo sản phẩm đạt chuẩn sinh học." data-en="With passion and relentless effort, we have built a trusted brand. Our semi-automated production line with advanced machinery ensures products meet bio-standards.">Với tâm huyết và nỗ lực không ngừng, chúng tôi đã xây dựng một thương hiệu uy tín. Dây chuyền sản xuất bán tự động với hệ thống máy móc tiên tiến, đảm bảo sản phẩm đạt chuẩn sinh học.</p>
             <div class="about-highlights">
-                <div class="about-highlight"><div class="about-highlight-icon">&#127811;</div><span data-vi="100% Nguyen lieu tu nhien" data-en="100% Natural materials">100% Nguyen lieu tu nhien</span></div>
-                <div class="about-highlight"><div class="about-highlight-icon">&#9989;</div><span data-vi="Chung nhan ISO 22000" data-en="ISO 22000 Certified">Chung nhan ISO 22000</span></div>
-                <div class="about-highlight"><div class="about-highlight-icon">&#127981;</div><span data-vi="Nha xuong 1500m&#178;" data-en="1500m&#178; Factory">Nha xuong 1500m&#178;</span></div>
-                <div class="about-highlight"><div class="about-highlight-icon">&#128101;</div><span data-vi="Tao sinh ke ben vung" data-en="Sustainable livelihoods">Tao sinh ke ben vung</span></div>
+                <div class="about-highlight"><div class="about-highlight-icon">&#127811;</div><span data-vi="100% Nguyên liệu tự nhiên" data-en="100% Natural materials">100% Nguyên liệu tự nhiên</span></div>
+                <div class="about-highlight"><div class="about-highlight-icon">&#9989;</div><span data-vi="Chứng nhận ISO 22000" data-en="ISO 22000 Certified">Chứng nhận ISO 22000</span></div>
+                <div class="about-highlight"><div class="about-highlight-icon">&#127981;</div><span data-vi="Nhà xưởng 1500m&#178;" data-en="1500m&#178; Factory">Nhà xưởng 1500m&#178;</span></div>
+                <div class="about-highlight"><div class="about-highlight-icon">&#128101;</div><span data-vi="Tạo sinh kế bền vững" data-en="Sustainable livelihoods">Tạo sinh kế bền vững</span></div>
             </div>
         </div>
     </div>
@@ -437,82 +366,55 @@
 <!-- Vision -->
 <section class="vision" id="vision">
     <div class="section-header reveal">
-        <div class="section-tag" data-vi="Tam nhin & Su menh" data-en="Vision & Mission">Tam nhin & Su menh</div>
-        <h2 data-vi="Dinh Huong Phat Trien" data-en="Development Direction">Dinh Huong Phat Trien</h2>
-        <p data-vi="Xay dung nen kinh te xanh va ben vung tu mang dat To" data-en="Building a green and sustainable economy from the Ancestral Land">Xay dung nen kinh te xanh va ben vung tu mang dat To</p>
+        <div class="section-tag" data-vi="Tầm nhìn & Sứ mệnh" data-en="Vision & Mission">Tầm nhìn & Sứ mệnh</div>
+        <h2 data-vi="Định Hướng Phát Triển" data-en="Development Direction">Định Hướng Phát Triển</h2>
+        <p data-vi="Xây dựng nền kinh tế xanh và bền vững từ mảnh đất Tổ" data-en="Building a green and sustainable economy from the Ancestral Land">Xây dựng nền kinh tế xanh và bền vững từ mảnh đất Tổ</p>
     </div>
     <div class="vision-grid reveal">
         <div class="vision-card">
             <div class="vision-card-icon">&#127793;</div>
-            <h3 data-vi="Su Menh" data-en="Mission">Su Menh</h3>
-            <p data-vi="Gin giu va phat huy gia tri tu nhien, bien nguyen lieu dan da nhu la cau, la tre thanh san pham sinh hoc huu ich. Tao sinh ke ben vung cho nguoi nong dan, gop phan lan toa loi song xanh, giam thieu rac thai nhua." data-en="Preserving and promoting natural values, transforming humble materials like areca and bamboo leaves into useful bio-products. Creating sustainable livelihoods for farmers, spreading green living, reducing plastic waste.">Gin giu va phat huy gia tri tu nhien, bien nguyen lieu dan da nhu la cau, la tre thanh san pham sinh hoc huu ich. Tao sinh ke ben vung cho nguoi nong dan, gop phan lan toa loi song xanh, giam thieu rac thai nhua.</p>
+            <h3 data-vi="Sứ Mệnh" data-en="Mission">Sứ Mệnh</h3>
+            <p data-vi="Gìn giữ và phát huy giá trị tự nhiên, biến nguyên liệu dân dã như lá cau, lá tre thành sản phẩm sinh học hữu ích. Tạo sinh kế bền vững cho người nông dân, góp phần lan toả lối sống xanh, giảm thiểu rác thải nhựa." data-en="Preserving and promoting natural values, transforming humble materials like areca and bamboo leaves into useful bio-products. Creating sustainable livelihoods for farmers, spreading green living, reducing plastic waste.">Gìn giữ và phát huy giá trị tự nhiên, biến nguyên liệu dân dã như lá cau, lá tre thành sản phẩm sinh học hữu ích. Tạo sinh kế bền vững cho người nông dân, góp phần lan toả lối sống xanh, giảm thiểu rác thải nhựa.</p>
         </div>
         <div class="vision-card">
             <div class="vision-card-icon">&#127758;</div>
-            <h3 data-vi="Tam Nhin" data-en="Vision">Tam Nhin</h3>
-            <p data-vi="Tro thanh don vi tien phong tai Phu Tho va mien Bac trong san xuat san pham sinh hoc tu la — giai phap thay the nhua mot lan. Huong den phat trien thi truong trong nuoc va mo rong xuat khau quoc te." data-en="Becoming the pioneer in Phu Tho and Northern Vietnam in producing bio-products from leaves — a single-use plastic alternative. Aiming for domestic market development and expanding international exports.">Tro thanh don vi tien phong tai Phu Tho va mien Bac trong san xuat san pham sinh hoc tu la — giai phap thay the nhua mot lan. Huong den phat trien thi truong trong nuoc va mo rong xuat khau quoc te.</p>
+            <h3 data-vi="Tầm Nhìn" data-en="Vision">Tầm Nhìn</h3>
+            <p data-vi="Trở thành đơn vị tiên phong tại Phú Thọ và khu vực miền Bắc trong sản xuất sản phẩm sinh học từ lá — giải pháp thay thế nhựa một lần. Hướng đến phát triển thị trường trong nước và từng bước mở rộng xuất khẩu quốc tế." data-en="Becoming the pioneer in Phu Tho and Northern Vietnam in producing bio-products from leaves — a single-use plastic alternative. Aiming for domestic market development and expanding international exports.">Trở thành đơn vị tiên phong tại Phú Thọ và khu vực miền Bắc trong sản xuất sản phẩm sinh học từ lá — giải pháp thay thế nhựa một lần. Hướng đến phát triển thị trường trong nước và từng bước mở rộng xuất khẩu quốc tế.</p>
         </div>
     </div>
     <div class="values-grid reveal">
-        <div class="value-item"><div class="value-icon">&#128154;</div><h4 data-vi="Dao duc" data-en="Ethics">Dao duc</h4><p data-vi="Cam ket voi cong dong va moi truong" data-en="Committed to community & environment">Cam ket voi cong dong va moi truong</p></div>
-        <div class="value-item"><div class="value-icon">&#129309;</div><h4 data-vi="Khach hang" data-en="Customer">Khach hang</h4><p data-vi="Lang nghe, thau hieu va dap ung" data-en="Listen, understand & deliver">Lang nghe, thau hieu va dap ung</p></div>
-        <div class="value-item"><div class="value-icon">&#128161;</div><h4 data-vi="Doi moi" data-en="Innovation">Doi moi</h4><p data-vi="Cai tien cong nghe khong ngung" data-en="Continuous technology improvement">Cai tien cong nghe khong ngung</p></div>
-        <div class="value-item"><div class="value-icon">&#127942;</div><h4 data-vi="Chat luong" data-en="Quality">Chat luong</h4><p data-vi="Chu trong tung san pham" data-en="Focus on every product">Chu trong tung san pham</p></div>
-        <div class="value-item"><div class="value-icon">&#127807;</div><h4 data-vi="Ben vung" data-en="Sustainable">Ben vung</h4><p data-vi="Hop tac tao gia tri lau dai" data-en="Partnership for lasting value">Hop tac tao gia tri lau dai</p></div>
+        <div class="value-item"><div class="value-icon">&#128154;</div><h4 data-vi="Đạo đức" data-en="Ethics">Đạo đức</h4><p data-vi="Cam kết với cộng đồng và môi trường" data-en="Committed to community & environment">Cam kết với cộng đồng và môi trường</p></div>
+        <div class="value-item"><div class="value-icon">&#129309;</div><h4 data-vi="Khách hàng" data-en="Customer">Khách hàng</h4><p data-vi="Lắng nghe, thấu hiểu và đáp ứng" data-en="Listen, understand & deliver">Lắng nghe, thấu hiểu và đáp ứng</p></div>
+        <div class="value-item"><div class="value-icon">&#128161;</div><h4 data-vi="Đổi mới" data-en="Innovation">Đổi mới</h4><p data-vi="Cải tiến công nghệ không ngừng" data-en="Continuous technology improvement">Cải tiến công nghệ không ngừng</p></div>
+        <div class="value-item"><div class="value-icon">&#127942;</div><h4 data-vi="Chất lượng" data-en="Quality">Chất lượng</h4><p data-vi="Chú trọng từng sản phẩm" data-en="Focus on every product">Chú trọng từng sản phẩm</p></div>
+        <div class="value-item"><div class="value-icon">&#127807;</div><h4 data-vi="Bền vững" data-en="Sustainable">Bền vững</h4><p data-vi="Hợp tác tạo giá trị lâu dài" data-en="Partnership for lasting value">Hợp tác tạo giá trị lâu dài</p></div>
     </div>
 </section>
 
 <!-- Products -->
 <section class="products" id="products">
     <div class="section-header reveal">
-        <div class="section-tag" data-vi="San pham" data-en="Products">San pham</div>
-        <h2 data-vi="San Pham Sinh Hoc Tu Mo Cau" data-en="Bio-Products From Areca Palm">San Pham Sinh Hoc Tu Mo Cau</h2>
-        <p data-vi="Da dang mau ma, nhieu kich thuoc — thay the hoan toan do nhua dung mot lan" data-en="Diverse designs, multiple sizes — completely replacing single-use plastics">Da dang mau ma, nhieu kich thuoc — thay the hoan toan do nhua dung mot lan</p>
+        <div class="section-tag" data-vi="Sản phẩm" data-en="Products">Sản phẩm</div>
+        <h2 data-vi="Sản Phẩm Sinh Học Từ Mo Cau" data-en="Bio-Products From Areca Palm">Sản Phẩm Sinh Học Từ Mo Cau</h2>
+        <p data-vi="Đa dạng mẫu mã, nhiều kích thước — thay thế hoàn toàn đồ nhựa dùng một lần" data-en="Diverse designs, multiple sizes — completely replacing single-use plastics">Đa dạng mẫu mã, nhiều kích thước — thay thế hoàn toàn đồ nhựa dùng một lần</p>
     </div>
     <div class="products-showcase">
         <div class="product-categories reveal">
-            <button class="cat-btn active" onclick="filterProducts('all')" data-vi="Tat ca" data-en="All">Tat ca</button>
-            <button class="cat-btn" onclick="filterProducts('dia')" data-vi="Dia" data-en="Plates">Dia</button>
-            <button class="cat-btn" onclick="filterProducts('chen')" data-vi="Chen" data-en="Bowls">Chen</button>
+            <button class="cat-btn active" onclick="filterProducts('all')" data-vi="Tất cả" data-en="All">Tất cả</button>
+            <button class="cat-btn" onclick="filterProducts('dia')" data-vi="Đĩa" data-en="Plates">Đĩa</button>
+            <button class="cat-btn" onclick="filterProducts('chen')" data-vi="Chén" data-en="Bowls">Chén</button>
             <button class="cat-btn" onclick="filterProducts('khay')" data-vi="Khay" data-en="Trays">Khay</button>
-            <button class="cat-btn" onclick="filterProducts('khac')" data-vi="Khac" data-en="Others">Khac</button>
+            <button class="cat-btn" onclick="filterProducts('khac')" data-vi="Khác" data-en="Others">Khác</button>
         </div>
         <div class="products-grid reveal">
-            <div class="product-card" data-cat="khay">
-                <div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356243_1773919063797.jpg" alt="Rectangular tray" class="product-card-img"></div>
-                <span class="product-card-badge" data-vi="Ban chay" data-en="Best seller">Ban chay</span>
-                <div class="product-card-info"><h4 data-vi="Khay Chu Nhat Mo Cau" data-en="Rectangular Areca Tray">Khay Chu Nhat Mo Cau</h4><p data-vi="Dung thuc pham, trai cay, banh" data-en="For food, fruits, pastries">Dung thuc pham, trai cay, banh</p><div class="size">30x23x1.5cm</div></div>
-            </div>
-            <div class="product-card" data-cat="dia">
-                <div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356395_1773919064408.jpg" alt="Round plate" class="product-card-img"></div>
-                <div class="product-card-info"><h4 data-vi="Dia Tron Mo Cau" data-en="Round Areca Plate">Dia Tron Mo Cau</h4><p data-vi="An toan tiep xuc thuc pham" data-en="Food-contact safe">An toan tiep xuc thuc pham</p><div class="size">20x20x2cm</div></div>
-            </div>
-            <div class="product-card" data-cat="khac">
-                <div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356513_1773919065101.jpg" alt="Spoon" class="product-card-img"></div>
-                <div class="product-card-info"><h4 data-vi="Muong / Thia Mo Cau" data-en="Areca Spoon">Muong / Thia Mo Cau</h4><p data-vi="Thay the thia nhua mot lan" data-en="Replaces plastic spoons">Thay the thia nhua mot lan</p><div class="size">30x18cm</div></div>
-            </div>
-            <div class="product-card" data-cat="dia">
-                <div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356633_1773919065689.jpg" alt="Square plate" class="product-card-img"></div>
-                <span class="product-card-badge" data-vi="Moi" data-en="New">Moi</span>
-                <div class="product-card-info"><h4 data-vi="Dia Vuong Mo Cau" data-en="Square Areca Plate">Dia Vuong Mo Cau</h4><p data-vi="Thiet ke tinh te, thanh lich" data-en="Elegant, sophisticated design">Thiet ke tinh te, thanh lich</p><div class="size">20x20x1.5cm</div></div>
-            </div>
-            <div class="product-card" data-cat="khay">
-                <div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356772_1773919066127.jpg" alt="Small tray" class="product-card-img"></div>
-                <div class="product-card-info"><h4 data-vi="Khay Nho Mo Cau" data-en="Small Areca Tray">Khay Nho Mo Cau</h4><p data-vi="Dung nuoc cham, gia vi" data-en="For dipping sauces, spices">Dung nuoc cham, gia vi</p><div class="size">23x15x1.5cm</div></div>
-            </div>
-            <div class="product-card" data-cat="chen">
-                <div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356875_1773919066631.jpg" alt="Round bowl" class="product-card-img"></div>
-                <div class="product-card-info"><h4 data-vi="Chen Tron Mo Cau" data-en="Round Areca Bowl">Chen Tron Mo Cau</h4><p data-vi="Dung canh, sup, che" data-en="For soup, desserts">Dung canh, sup, che</p><div class="size">12x12x4cm</div></div>
-            </div>
-            <div class="product-card" data-cat="chen">
-                <div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356986_1773919067210.jpg" alt="Small square bowl" class="product-card-img"></div>
-                <div class="product-card-info"><h4 data-vi="Chen Vuong Nho" data-en="Small Square Bowl">Chen Vuong Nho</h4><p data-vi="Dung nuoc cham, topping" data-en="For sauces, toppings">Dung nuoc cham, topping</p><div class="size">7.5x7.5x2cm</div></div>
-            </div>
-            <div class="product-card" data-cat="dia">
-                <div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911290940_1773919107629.jpg" alt="Heart plate" class="product-card-img"></div>
-                <span class="product-card-badge" data-vi="Doc dao" data-en="Unique">Doc dao</span>
-                <div class="product-card-info"><h4 data-vi="Dia Trai Tim Mo Cau" data-en="Heart-Shaped Areca Plate">Dia Trai Tim Mo Cau</h4><p data-vi="Mau ma doc dao, thu hut" data-en="Unique & attractive design">Mau ma doc dao, thu hut</p><div class="size" data-vi="Nhieu kich co" data-en="Multiple sizes">Nhieu kich co</div></div>
-            </div>
+            <div class="product-card" data-cat="khay"><div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356243_1773919063797.jpg" alt="Khay chữ nhật" class="product-card-img"></div><span class="product-card-badge" data-vi="Bán chạy" data-en="Best seller">Bán chạy</span><div class="product-card-info"><h4 data-vi="Khay Chữ Nhật Mo Cau" data-en="Rectangular Areca Tray">Khay Chữ Nhật Mo Cau</h4><p data-vi="Đựng thực phẩm, trái cây, bánh" data-en="For food, fruits, pastries">Đựng thực phẩm, trái cây, bánh</p><div class="size">30x23x1.5cm</div></div></div>
+            <div class="product-card" data-cat="dia"><div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356395_1773919064408.jpg" alt="Đĩa tròn" class="product-card-img"></div><div class="product-card-info"><h4 data-vi="Đĩa Tròn Mo Cau" data-en="Round Areca Plate">Đĩa Tròn Mo Cau</h4><p data-vi="An toàn tiếp xúc thực phẩm" data-en="Food-contact safe">An toàn tiếp xúc thực phẩm</p><div class="size">20x20x2cm</div></div></div>
+            <div class="product-card" data-cat="khac"><div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356513_1773919065101.jpg" alt="Muỗng" class="product-card-img"></div><div class="product-card-info"><h4 data-vi="Muỗng / Thìa Mo Cau" data-en="Areca Spoon">Muỗng / Thìa Mo Cau</h4><p data-vi="Thay thế thìa nhựa một lần" data-en="Replaces plastic spoons">Thay thế thìa nhựa một lần</p><div class="size">30x18cm</div></div></div>
+            <div class="product-card" data-cat="dia"><div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356633_1773919065689.jpg" alt="Đĩa vuông" class="product-card-img"></div><span class="product-card-badge" data-vi="Mới" data-en="New">Mới</span><div class="product-card-info"><h4 data-vi="Đĩa Vuông Mo Cau" data-en="Square Areca Plate">Đĩa Vuông Mo Cau</h4><p data-vi="Thiết kế tinh tế, thanh lịch" data-en="Elegant, sophisticated design">Thiết kế tinh tế, thanh lịch</p><div class="size">20x20x1.5cm</div></div></div>
+            <div class="product-card" data-cat="khay"><div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356772_1773919066127.jpg" alt="Khay nhỏ" class="product-card-img"></div><div class="product-card-info"><h4 data-vi="Khay Nhỏ Mo Cau" data-en="Small Areca Tray">Khay Nhỏ Mo Cau</h4><p data-vi="Đựng nước chấm, gia vị" data-en="For dipping sauces, spices">Đựng nước chấm, gia vị</p><div class="size">23x15x1.5cm</div></div></div>
+            <div class="product-card" data-cat="chen"><div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356875_1773919066631.jpg" alt="Chén tròn" class="product-card-img"></div><div class="product-card-info"><h4 data-vi="Chén Tròn Mo Cau" data-en="Round Areca Bowl">Chén Tròn Mo Cau</h4><p data-vi="Đựng canh, súp, chè" data-en="For soup, desserts">Đựng canh, súp, chè</p><div class="size">12x12x4cm</div></div></div>
+            <div class="product-card" data-cat="chen"><div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911356986_1773919067210.jpg" alt="Chén vuông nhỏ" class="product-card-img"></div><div class="product-card-info"><h4 data-vi="Chén Vuông Nhỏ" data-en="Small Square Bowl">Chén Vuông Nhỏ</h4><p data-vi="Đựng nước chấm, topping" data-en="For sauces, toppings">Đựng nước chấm, topping</p><div class="size">7.5x7.5x2cm</div></div></div>
+            <div class="product-card" data-cat="dia"><div style="overflow:hidden;border-radius:20px 20px 0 0"><img src="ảnh sản phẩm/IMG_1773911290940_1773919107629.jpg" alt="Đĩa trái tim" class="product-card-img"></div><span class="product-card-badge" data-vi="Độc đáo" data-en="Unique">Độc đáo</span><div class="product-card-info"><h4 data-vi="Đĩa Trái Tim Mo Cau" data-en="Heart-Shaped Areca Plate">Đĩa Trái Tim Mo Cau</h4><p data-vi="Mẫu mã độc đáo, thu hút" data-en="Unique & attractive design">Mẫu mã độc đáo, thu hút</p><div class="size" data-vi="Nhiều kích cỡ" data-en="Multiple sizes">Nhiều kích cỡ</div></div></div>
         </div>
     </div>
 </section>
@@ -520,210 +422,145 @@
 <!-- Gallery -->
 <section class="gallery" id="gallery">
     <div class="section-header reveal">
-        <div class="section-tag" data-vi="Thu vien anh" data-en="Gallery">Thu vien anh</div>
-        <h2 data-vi="San Pham Trong Thuc Te" data-en="Products In Real Life">San Pham Trong Thuc Te</h2>
-        <p data-vi="San pham mo cau duoc su dung thuc te tai nha hang, su kien va doi song hang ngay" data-en="Areca products used in restaurants, events, and daily life">San pham mo cau duoc su dung thuc te tai nha hang, su kien va doi song hang ngay</p>
+        <div class="section-tag" data-vi="Thư viện ảnh" data-en="Gallery">Thư viện ảnh</div>
+        <h2 data-vi="Sản Phẩm Trong Thực Tế" data-en="Products In Real Life">Sản Phẩm Trong Thực Tế</h2>
+        <p data-vi="Sản phẩm mo cau được sử dụng thực tế tại nhà hàng, sự kiện và đời sống hàng ngày" data-en="Areca products used in restaurants, events, and daily life">Sản phẩm mo cau được sử dụng thực tế tại nhà hàng, sự kiện và đời sống hàng ngày</p>
     </div>
     <div class="gallery-grid reveal">
-        <div class="gallery-item tall" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911289535_1773919099300.jpg" alt="Food on areca plates"><div class="overlay"><span data-vi="San pham dung thuc an thuc te" data-en="Real food serving">San pham dung thuc an thuc te</span></div></div>
-        <div class="gallery-item wide" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911289683_1773919100126.jpg" alt="Restaurant use"><div class="overlay"><span data-vi="Khach hang su dung tai nha hang" data-en="Used at restaurants">Khach hang su dung tai nha hang</span></div></div>
-        <div class="gallery-item" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911290503_1773919104750.jpg" alt="Product collection"><div class="overlay"><span data-vi="Bo su tap da dang" data-en="Diverse collection">Bo su tap da dang</span></div></div>
-        <div class="gallery-item" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911290615_1773919105279.jpg" alt="Unique shapes"><div class="overlay"><span data-vi="Hinh dang doc dao" data-en="Unique shapes">Hinh dang doc dao</span></div></div>
-        <div class="gallery-item wide" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911290710_1773919105875.jpg" alt="Square plates sizes"><div class="overlay"><span data-vi="Dia vuong nhieu kich co" data-en="Multiple square plate sizes">Dia vuong nhieu kich co</span></div></div>
-        <div class="gallery-item" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911291489_1773919111166.jpg" alt="Exhibition"><div class="overlay"><span data-vi="Trung bay tai su kien" data-en="Displayed at events">Trung bay tai su kien</span></div></div>
-        <div class="gallery-item" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911356098_1773919063332.jpg" alt="Stacked products"><div class="overlay"><span data-vi="Nhieu kich co tien loi" data-en="Convenient sizes">Nhieu kich co tien loi</span></div></div>
+        <div class="gallery-item tall" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911289535_1773919099300.jpg" alt="Thực phẩm trên đĩa mo cau"><div class="overlay"><span data-vi="Sản phẩm đựng thức ăn thực tế" data-en="Real food serving">Sản phẩm đựng thức ăn thực tế</span></div></div>
+        <div class="gallery-item wide" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911289683_1773919100126.jpg" alt="Nhà hàng sử dụng"><div class="overlay"><span data-vi="Khách hàng sử dụng tại nhà hàng" data-en="Used at restaurants">Khách hàng sử dụng tại nhà hàng</span></div></div>
+        <div class="gallery-item" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911290503_1773919104750.jpg" alt="Bộ sưu tập"><div class="overlay"><span data-vi="Bộ sưu tập đa dạng" data-en="Diverse collection">Bộ sưu tập đa dạng</span></div></div>
+        <div class="gallery-item" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911290615_1773919105279.jpg" alt="Hình dạng độc đáo"><div class="overlay"><span data-vi="Hình dạng độc đáo" data-en="Unique shapes">Hình dạng độc đáo</span></div></div>
+        <div class="gallery-item wide" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911290710_1773919105875.jpg" alt="Đĩa vuông nhiều kích cỡ"><div class="overlay"><span data-vi="Đĩa vuông nhiều kích cỡ" data-en="Multiple square plate sizes">Đĩa vuông nhiều kích cỡ</span></div></div>
+        <div class="gallery-item" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911291489_1773919111166.jpg" alt="Triển lãm"><div class="overlay"><span data-vi="Trưng bày tại sự kiện" data-en="Displayed at events">Trưng bày tại sự kiện</span></div></div>
+        <div class="gallery-item" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911356098_1773919063332.jpg" alt="Sản phẩm xếp chồng"><div class="overlay"><span data-vi="Nhiều kích cỡ tiện lợi" data-en="Convenient sizes">Nhiều kích cỡ tiện lợi</span></div></div>
     </div>
 </section>
 
 <!-- Process -->
 <section class="process" id="process">
     <div class="section-header reveal">
-        <div class="section-tag" data-vi="Quy trinh" data-en="Process">Quy trinh</div>
-        <h2 data-vi="Quy Trinh San Xuat Khep Kin" data-en="Closed-Loop Production Process">Quy Trinh San Xuat Khep Kin</h2>
-        <p data-vi="Tu nguyen lieu tu nhien den san pham hoan thien dat chuan xuat khau" data-en="From natural raw materials to export-quality finished products">Tu nguyen lieu tu nhien den san pham hoan thien dat chuan xuat khau</p>
+        <div class="section-tag" data-vi="Quy trình" data-en="Process">Quy trình</div>
+        <h2 data-vi="Quy Trình Sản Xuất Khép Kín" data-en="Closed-Loop Production Process">Quy Trình Sản Xuất Khép Kín</h2>
+        <p data-vi="Từ nguyên liệu tự nhiên đến sản phẩm hoàn thiện đạt chuẩn xuất khẩu" data-en="From natural raw materials to export-quality finished products">Từ nguyên liệu tự nhiên đến sản phẩm hoàn thiện đạt chuẩn xuất khẩu</p>
     </div>
     <div class="process-timeline reveal">
-        <div class="process-step">
-            <div class="process-step-content"><h4 data-vi="&#127811; Thu mua nguyen lieu" data-en="&#127811; Raw Material Sourcing">&#127811; Thu mua nguyen lieu</h4><p data-vi="Be cau, la tre thu mua tu nong ho tai Phu Tho, Tuyen Quang, Yen Bai. 100% tu nhien, khong hoa chat." data-en="Areca sheaths and bamboo leaves sourced from farms in Phu Tho, Tuyen Quang, Yen Bai. 100% natural, chemical-free.">Be cau, la tre thu mua tu nong ho tai Phu Tho, Tuyen Quang, Yen Bai. 100% tu nhien, khong hoa chat.</p></div>
-            <div class="process-step-num">1</div><div class="spacer"></div>
-        </div>
-        <div class="process-step">
-            <div class="spacer"></div><div class="process-step-num">2</div>
-            <div class="process-step-content"><h4 data-vi="&#128703; Rua sach & Xu ly" data-en="&#128703; Cleaning & Processing">&#128703; Rua sach & Xu ly</h4><p data-vi="May co rua cong nghiep loai bo tap chat, bui ban va vi sinh vat. Kiem tra do am va phan loai." data-en="Industrial washing machines remove impurities, dust, and microorganisms. Moisture testing and grading.">May co rua cong nghiep loai bo tap chat, bui ban va vi sinh vat. Kiem tra do am va phan loai.</p></div>
-        </div>
-        <div class="process-step">
-            <div class="process-step-content"><h4 data-vi="&#9879;&#65039; Ep nhiet dinh hinh" data-en="&#9879;&#65039; Heat Press Molding">&#9879;&#65039; Ep nhiet dinh hinh</h4><p data-vi="May ep nhiet tu dong, nhiet do 120-150°C, san pham cung ben, khong cong venh." data-en="Automatic heat press at 120-150°C, producing durable, warp-free products.">May ep nhiet tu dong, nhiet do 120-150°C, san pham cung ben, khong cong venh.</p></div>
-            <div class="process-step-num">3</div><div class="spacer"></div>
-        </div>
-        <div class="process-step">
-            <div class="spacer"></div><div class="process-step-num">4</div>
-            <div class="process-step-content"><h4 data-vi="&#128302; Diet khuan UV" data-en="&#128302; UV Sterilization">&#128302; Diet khuan UV</h4><p data-vi="Anh sang UV khu khuan be mat san pham, dam bao an toan ve sinh thuc pham." data-en="UV light sterilizes product surfaces, ensuring food hygiene safety.">Anh sang UV khu khuan be mat san pham, dam bao an toan ve sinh thuc pham.</p></div>
-        </div>
-        <div class="process-step">
-            <div class="process-step-content"><h4 data-vi="&#128230; Dong goi & Bao quan" data-en="&#128230; Packaging & Storage">&#128230; Dong goi & Bao quan</h4><p data-vi="Dong mang co / hut chan khong, kiem soat do am 12-15%, san pham on dinh khi van chuyen." data-en="Shrink wrap / vacuum packing, moisture controlled at 12-15%, stable during shipping.">Dong mang co / hut chan khong, kiem soat do am 12-15%, san pham on dinh khi van chuyen.</p></div>
-            <div class="process-step-num">5</div><div class="spacer"></div>
-        </div>
+        <div class="process-step"><div class="process-step-content"><h4 data-vi="&#127811; Thu mua nguyên liệu" data-en="&#127811; Raw Material Sourcing">&#127811; Thu mua nguyên liệu</h4><p data-vi="Bẹ cau, lá tre thu mua từ nông hộ tại Phú Thọ, Tuyên Quang, Yên Bái. 100% tự nhiên, không hoá chất." data-en="Areca sheaths and bamboo leaves sourced from farms in Phu Tho, Tuyen Quang, Yen Bai. 100% natural, chemical-free.">Bẹ cau, lá tre thu mua từ nông hộ tại Phú Thọ, Tuyên Quang, Yên Bái. 100% tự nhiên, không hoá chất.</p></div><div class="process-step-num">1</div><div class="spacer"></div></div>
+        <div class="process-step"><div class="spacer"></div><div class="process-step-num">2</div><div class="process-step-content"><h4 data-vi="&#128703; Rửa sạch & Xử lý" data-en="&#128703; Cleaning & Processing">&#128703; Rửa sạch & Xử lý</h4><p data-vi="Máy cọ rửa công nghiệp loại bỏ tạp chất, bụi bẩn và vi sinh vật. Kiểm tra độ ẩm và phân loại." data-en="Industrial washing machines remove impurities, dust, and microorganisms. Moisture testing and grading.">Máy cọ rửa công nghiệp loại bỏ tạp chất, bụi bẩn và vi sinh vật. Kiểm tra độ ẩm và phân loại.</p></div></div>
+        <div class="process-step"><div class="process-step-content"><h4 data-vi="&#9879;&#65039; Ép nhiệt định hình" data-en="&#9879;&#65039; Heat Press Molding">&#9879;&#65039; Ép nhiệt định hình</h4><p data-vi="Máy ép nhiệt tự động, nhiệt độ 120-150°C, sản phẩm cứng bền, không cong vênh." data-en="Automatic heat press at 120-150°C, producing durable, warp-free products.">Máy ép nhiệt tự động, nhiệt độ 120-150°C, sản phẩm cứng bền, không cong vênh.</p></div><div class="process-step-num">3</div><div class="spacer"></div></div>
+        <div class="process-step"><div class="spacer"></div><div class="process-step-num">4</div><div class="process-step-content"><h4 data-vi="&#128302; Diệt khuẩn UV" data-en="&#128302; UV Sterilization">&#128302; Diệt khuẩn UV</h4><p data-vi="Ánh sáng UV khử khuẩn bề mặt sản phẩm, đảm bảo an toàn vệ sinh thực phẩm." data-en="UV light sterilizes product surfaces, ensuring food hygiene safety.">Ánh sáng UV khử khuẩn bề mặt sản phẩm, đảm bảo an toàn vệ sinh thực phẩm.</p></div></div>
+        <div class="process-step"><div class="process-step-content"><h4 data-vi="&#128230; Đóng gói & Bảo quản" data-en="&#128230; Packaging & Storage">&#128230; Đóng gói & Bảo quản</h4><p data-vi="Đóng màng co / hút chân không, kiểm soát độ ẩm 12-15%, sản phẩm ổn định khi vận chuyển." data-en="Shrink wrap / vacuum packing, moisture controlled at 12-15%, stable during shipping.">Đóng màng co / hút chân không, kiểm soát độ ẩm 12-15%, sản phẩm ổn định khi vận chuyển.</p></div><div class="process-step-num">5</div><div class="spacer"></div></div>
     </div>
 </section>
 
 <!-- Factory -->
 <section class="factory" id="factory">
     <div class="section-header reveal">
-        <div class="section-tag" data-vi="Nha xuong" data-en="Factory">Nha xuong</div>
-        <h2 data-vi="Hinh Anh Nha Xuong Thuc Te" data-en="Our Factory">Hinh Anh Nha Xuong Thuc Te</h2>
-        <p data-vi="Xuong san xuat hien dai voi dien tich hon 1.500m&#178; tai Phu Tho" data-en="Modern production facility with over 1,500m&#178; in Phu Tho">Xuong san xuat hien dai voi dien tich hon 1.500m&#178; tai Phu Tho</p>
+        <div class="section-tag" data-vi="Nhà xưởng" data-en="Factory">Nhà xưởng</div>
+        <h2 data-vi="Hình Ảnh Nhà Xưởng Thực Tế" data-en="Our Factory">Hình Ảnh Nhà Xưởng Thực Tế</h2>
+        <p data-vi="Xưởng sản xuất hiện đại với diện tích hơn 1.500m&#178; tại Phú Thọ" data-en="Modern production facility with over 1,500m&#178; in Phu Tho">Xưởng sản xuất hiện đại với diện tích hơn 1.500m&#178; tại Phú Thọ</p>
     </div>
     <div class="factory-grid reveal">
-        <div class="factory-card" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911289886_1773919101515.jpg" alt="Heat press"><div class="factory-card-caption"><h4 data-vi="May Ep Nhiet Tu Dong" data-en="Automatic Heat Press">May Ep Nhiet Tu Dong</h4><p data-vi="He thong may ep nhiet dinh hinh san pham" data-en="Heat press molding system">He thong may ep nhiet dinh hinh san pham</p></div></div>
-        <div class="factory-card" onclick="openLightbox(this)"><img src="ảnh sản phẩm/11955911140546836014.jpg" alt="Worker operating"><div class="factory-card-caption"><h4 data-vi="Day Chuyen San Xuat" data-en="Production Line">Day Chuyen San Xuat</h4><p data-vi="Cong nhan van hanh may ep nhiet chuyen nghiep" data-en="Professional heat press operation">Cong nhan van hanh may ep nhiet chuyen nghiep</p></div></div>
-        <div class="factory-card" onclick="openLightbox(this)"><img src="ảnh sản phẩm/42870689684719742261.jpg" alt="Raw materials"><div class="factory-card-caption"><h4 data-vi="Thu Mua Mo Cau" data-en="Areca Sheath Sourcing">Thu Mua Mo Cau</h4><p data-vi="Nguyen lieu mo cau tu nong dan" data-en="Areca sheaths from local farmers">Nguyen lieu mo cau tu nong dan</p></div></div>
-        <div class="factory-card" onclick="openLightbox(this)"><img src="ảnh sản phẩm/42870689684719742262.jpg" alt="Storage"><div class="factory-card-caption"><h4 data-vi="Kho Nguyen Lieu" data-en="Raw Material Storage">Kho Nguyen Lieu</h4><p data-vi="Mo cau phan loai va bao quan" data-en="Sorted and stored areca sheaths">Mo cau phan loai va bao quan</p></div></div>
+        <div class="factory-card" onclick="openLightbox(this)"><img src="ảnh sản phẩm/IMG_1773911289886_1773919101515.jpg" alt="Máy ép nhiệt"><div class="factory-card-caption"><h4 data-vi="Máy Ép Nhiệt Tự Động" data-en="Automatic Heat Press">Máy Ép Nhiệt Tự Động</h4><p data-vi="Hệ thống máy ép nhiệt định hình sản phẩm" data-en="Heat press molding system">Hệ thống máy ép nhiệt định hình sản phẩm</p></div></div>
+        <div class="factory-card" onclick="openLightbox(this)"><img src="ảnh sản phẩm/11955911140546836014.jpg" alt="Công nhân vận hành"><div class="factory-card-caption"><h4 data-vi="Dây Chuyền Sản Xuất" data-en="Production Line">Dây Chuyền Sản Xuất</h4><p data-vi="Công nhân vận hành máy ép nhiệt chuyên nghiệp" data-en="Professional heat press operation">Công nhân vận hành máy ép nhiệt chuyên nghiệp</p></div></div>
+        <div class="factory-card" onclick="openLightbox(this)"><img src="ảnh sản phẩm/42870689684719742261.jpg" alt="Thu mua nguyên liệu"><div class="factory-card-caption"><h4 data-vi="Thu Mua Mo Cau" data-en="Areca Sheath Sourcing">Thu Mua Mo Cau</h4><p data-vi="Nguyên liệu mo cau từ nông dân" data-en="Areca sheaths from local farmers">Nguyên liệu mo cau từ nông dân</p></div></div>
+        <div class="factory-card" onclick="openLightbox(this)"><img src="ảnh sản phẩm/42870689684719742262.jpg" alt="Kho nguyên liệu"><div class="factory-card-caption"><h4 data-vi="Kho Nguyên Liệu" data-en="Raw Material Storage">Kho Nguyên Liệu</h4><p data-vi="Mo cau phân loại và bảo quản" data-en="Sorted and stored areca sheaths">Mo cau phân loại và bảo quản</p></div></div>
     </div>
 </section>
 
 <!-- Testimonials -->
 <section class="testimonials" id="testimonials">
     <div class="section-header reveal">
-        <div class="section-tag" data-vi="Khach hang noi gi" data-en="What Clients Say">Khach hang noi gi</div>
-        <h2 data-vi="Danh Gia Tu Khach Hang" data-en="Customer Reviews">Danh Gia Tu Khach Hang</h2>
-        <p data-vi="Nhung phan hoi chan thuc tu khach hang trong nuoc va quoc te" data-en="Authentic feedback from domestic and international clients">Nhung phan hoi chan thuc tu khach hang trong nuoc va quoc te</p>
+        <div class="section-tag" data-vi="Khách hàng nói gì" data-en="What Clients Say">Khách hàng nói gì</div>
+        <h2 data-vi="Đánh Giá Từ Khách Hàng" data-en="Customer Reviews">Đánh Giá Từ Khách Hàng</h2>
+        <p data-vi="Những phản hồi chân thực từ khách hàng trong nước và quốc tế" data-en="Authentic feedback from domestic and international clients">Những phản hồi chân thực từ khách hàng trong nước và quốc tế</p>
     </div>
     <div class="testimonials-grid reveal">
-        <!-- 1. Vietnam -->
-        <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testimonial-text" data-vi="&ldquo;San pham mo cau cua Dat To Star Eco rat dep va chat luong. Nha hang chung toi da chuyen hoan toan sang dung san pham nay thay the do nhua. Khach hang rat thich!&rdquo;" data-en="&ldquo;Dat To Star Eco's areca products are beautiful and high-quality. Our restaurant has completely switched to these products instead of plastics. Customers love them!&rdquo;">&ldquo;San pham mo cau cua Dat To Star Eco rat dep va chat luong. Nha hang chung toi da chuyen hoan toan sang dung san pham nay thay the do nhua. Khach hang rat thich!&rdquo;</div>
-            <div class="testimonial-author"><div class="testimonial-avatar">NT</div><div class="testimonial-info"><h5>Nguyen Thanh Tung</h5><p data-vi="Giam doc Nha hang Xanh, Ha Noi" data-en="Director, Xanh Restaurant, Hanoi">Giam doc Nha hang Xanh, Ha Noi</p></div><div class="testimonial-flag">&#127483;&#127475;</div></div>
-        </div>
-        <!-- 2. USA -->
-        <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testimonial-text" data-vi="&ldquo;Chat luong tuyet voi! Chung toi nhap khau san pham nay cho chuoi nha hang o California. Khach hang My rat an tuong voi san pham tu nhien nay.&rdquo;" data-en="&ldquo;Excellent quality! We import these products for our restaurant chain in California. American customers are very impressed with these natural products.&rdquo;">&ldquo;Chat luong tuyet voi! Chung toi nhap khau san pham nay cho chuoi nha hang o California. Khach hang My rat an tuong voi san pham tu nhien nay.&rdquo;</div>
-            <div class="testimonial-author"><div class="testimonial-avatar">JM</div><div class="testimonial-info"><h5>James Miller</h5><p data-vi="CEO, GreenDine Co., California, My" data-en="CEO, GreenDine Co., California, USA">CEO, GreenDine Co., California, My</p></div><div class="testimonial-flag">&#127482;&#127480;</div></div>
-        </div>
-        <!-- 3. Japan -->
-        <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testimonial-text" data-vi="&ldquo;San pham rat phu hop voi van hoa am thuc Nhat Ban. Chung toi su dung cho cac mon sushi va sashimi, khach hang danh gia cao ve tinh tham my va chat luong.&rdquo;" data-en="&ldquo;These products perfectly match Japanese food culture. We use them for sushi and sashimi — customers highly appreciate the aesthetics and quality.&rdquo;">&ldquo;San pham rat phu hop voi van hoa am thuc Nhat Ban. Chung toi su dung cho cac mon sushi va sashimi, khach hang danh gia cao ve tinh tham my va chat luong.&rdquo;</div>
-            <div class="testimonial-author"><div class="testimonial-avatar">TY</div><div class="testimonial-info"><h5>Tanaka Yuki</h5><p data-vi="Quan ly chuoi Izakaya, Tokyo, Nhat Ban" data-en="Izakaya Chain Manager, Tokyo, Japan">Quan ly chuoi Izakaya, Tokyo, Nhat Ban</p></div><div class="testimonial-flag">&#127471;&#127477;</div></div>
-        </div>
-        <!-- 4. South Korea -->
-        <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testimonial-text" data-vi="&ldquo;Chung toi da tim kiem san pham thay the nhua tu lau va Dat To Star Eco la lua chon hoan hao. Giao hang dung hen, chat luong dong deu, rat hai long.&rdquo;" data-en="&ldquo;We've been searching for plastic alternatives for a long time, and Dat To Star Eco is the perfect choice. On-time delivery, consistent quality — very satisfied.&rdquo;">&ldquo;Chung toi da tim kiem san pham thay the nhua tu lau va Dat To Star Eco la lua chon hoan hao. Giao hang dung hen, chat luong dong deu, rat hai long.&rdquo;</div>
-            <div class="testimonial-author"><div class="testimonial-avatar">PJ</div><div class="testimonial-info"><h5>Park Ji-hoon</h5><p data-vi="Giam doc mua hang, EcoMart, Seoul, Han Quoc" data-en="Procurement Director, EcoMart, Seoul, South Korea">Giam doc mua hang, EcoMart, Seoul, Han Quoc</p></div><div class="testimonial-flag">&#127472;&#127479;</div></div>
-        </div>
-        <!-- 5. Germany (EU) -->
-        <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testimonial-text" data-vi="&ldquo;San pham dat chuan CE chau Au, chung toi phan phoi tai Duc va Phap. Khach hang chau Au danh gia cao ve tinh ben vung va thiet ke tu nhien cua san pham.&rdquo;" data-en="&ldquo;CE-certified for the European market, we distribute in Germany and France. European customers value the sustainability and natural design of these products.&rdquo;">&ldquo;San pham dat chuan CE chau Au, chung toi phan phoi tai Duc va Phap. Khach hang chau Au danh gia cao ve tinh ben vung va thiet ke tu nhien cua san pham.&rdquo;</div>
-            <div class="testimonial-author"><div class="testimonial-avatar">KW</div><div class="testimonial-info"><h5>Klaus Weber</h5><p data-vi="CEO, EcoLeaf GmbH, Berlin, Duc" data-en="CEO, EcoLeaf GmbH, Berlin, Germany">CEO, EcoLeaf GmbH, Berlin, Duc</p></div><div class="testimonial-flag">&#127465;&#127466;</div></div>
-        </div>
-        <!-- 6. Canada -->
-        <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testimonial-text" data-vi="&ldquo;Cong ty chung toi chuyen cung cap bao bi xanh cho thi truong Canada. San pham cua Dat To Star Eco la mot trong nhung san pham tot nhat chung toi tung nhap.&rdquo;" data-en="&ldquo;Our company specializes in green packaging for the Canadian market. Dat To Star Eco's products are among the best we've ever imported.&rdquo;">&ldquo;Cong ty chung toi chuyen cung cap bao bi xanh cho thi truong Canada. San pham cua Dat To Star Eco la mot trong nhung san pham tot nhat chung toi tung nhap.&rdquo;</div>
-            <div class="testimonial-author"><div class="testimonial-avatar">SL</div><div class="testimonial-info"><h5>Sarah Leblanc</h5><p data-vi="Giam doc, GreenPack Inc., Toronto, Canada" data-en="Director, GreenPack Inc., Toronto, Canada">Giam doc, GreenPack Inc., Toronto, Canada</p></div><div class="testimonial-flag">&#127464;&#127462;</div></div>
-        </div>
-        <!-- 7. France (EU) -->
-        <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-            <div class="testimonial-text" data-vi="&ldquo;Chung toi su dung san pham Dat To Star Eco cho cac su kien am thuc tai Paris. Thiet ke tu nhien cua dia la mo cau tao nen su doc dao cho ban tiec.&rdquo;" data-en="&ldquo;We use Dat To Star Eco products for culinary events in Paris. The natural design of areca leaf plates creates a unique touch for banquets.&rdquo;">&ldquo;Chung toi su dung san pham Dat To Star Eco cho cac su kien am thuc tai Paris. Thiet ke tu nhien cua dia la mo cau tao nen su doc dao cho ban tiec.&rdquo;</div>
-            <div class="testimonial-author"><div class="testimonial-avatar">MD</div><div class="testimonial-info"><h5>Marie Dupont</h5><p data-vi="Chef truong, Le Vert Restaurant, Paris, Phap" data-en="Head Chef, Le Vert Restaurant, Paris, France">Chef truong, Le Vert Restaurant, Paris, Phap</p></div><div class="testimonial-flag">&#127467;&#127479;</div></div>
-        </div>
-        <!-- 8. Vietnam 2 -->
-        <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testimonial-text" data-vi="&ldquo;Chuoi sieu thi chung toi da dua san pham Dat To Star Eco len ke hang tu 2025. Nguoi tieu dung Viet Nam ngay cang uu tien san pham xanh, doanh so tang 40% moi thang.&rdquo;" data-en="&ldquo;Our supermarket chain has stocked Dat To Star Eco products since 2025. Vietnamese consumers increasingly prefer green products — sales grow 40% monthly.&rdquo;">&ldquo;Chuoi sieu thi chung toi da dua san pham Dat To Star Eco len ke hang tu 2025. Nguoi tieu dung Viet Nam ngay cang uu tien san pham xanh, doanh so tang 40% moi thang.&rdquo;</div>
-            <div class="testimonial-author"><div class="testimonial-avatar">LH</div><div class="testimonial-info"><h5>Le Hoang Mai</h5><p data-vi="Giam doc thu mua, Sieu thi GreenMart, TP.HCM" data-en="Procurement Director, GreenMart Supermarket, HCMC">Giam doc thu mua, Sieu thi GreenMart, TP.HCM</p></div><div class="testimonial-flag">&#127483;&#127475;</div></div>
-        </div>
-        <!-- 9. Netherlands (EU) -->
-        <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testimonial-text" data-vi="&ldquo;San pham hoan toan phu hop voi xu huong tieu dung xanh tai Chau Au. Chung toi da dat hang lon de phan phoi tai Ha Lan va Bi. Rat chuyen nghiep!&rdquo;" data-en="&ldquo;Products perfectly align with green consumption trends in Europe. We've placed large orders for distribution in the Netherlands and Belgium. Very professional!&rdquo;">&ldquo;San pham hoan toan phu hop voi xu huong tieu dung xanh tai Chau Au. Chung toi da dat hang lon de phan phoi tai Ha Lan va Bi. Rat chuyen nghiep!&rdquo;</div>
-            <div class="testimonial-author"><div class="testimonial-avatar">PV</div><div class="testimonial-info"><h5>Pieter van Dijk</h5><p data-vi="CEO, SustainPack BV, Amsterdam, Ha Lan" data-en="CEO, SustainPack BV, Amsterdam, Netherlands">CEO, SustainPack BV, Amsterdam, Ha Lan</p></div><div class="testimonial-flag">&#127475;&#127473;</div></div>
-        </div>
-        <!-- 10. Australia -->
-        <div class="testimonial-card">
-            <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <div class="testimonial-text" data-vi="&ldquo;San pham tuyet voi cho cac su kien ngoai troi tai Uc. 100% phan huy tu nhien, khong lo ve rac thai. Chat luong vuot mong doi so voi gia ca.&rdquo;" data-en="&ldquo;Wonderful products for outdoor events in Australia. 100% biodegradable with zero waste worry. Quality exceeds expectations for the price.&rdquo;">&ldquo;San pham tuyet voi cho cac su kien ngoai troi tai Uc. 100% phan huy tu nhien, khong lo ve rac thai. Chat luong vuot mong doi so voi gia ca.&rdquo;</div>
-            <div class="testimonial-author"><div class="testimonial-avatar">EW</div><div class="testimonial-info"><h5>Emily Watson</h5><p data-vi="Event Manager, EcoEvents, Sydney, Uc" data-en="Event Manager, EcoEvents, Sydney, Australia">Event Manager, EcoEvents, Sydney, Uc</p></div><div class="testimonial-flag">&#127462;&#127482;</div></div>
-        </div>
+        <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testimonial-text" data-vi="&ldquo;Sản phẩm mo cau của Đất Tổ Star Eco rất đẹp và chất lượng. Nhà hàng chúng tôi đã chuyển hoàn toàn sang dùng sản phẩm này thay thế đồ nhựa. Khách hàng rất thích!&rdquo;" data-en="&ldquo;Dat To Star Eco's areca products are beautiful and high-quality. Our restaurant has completely switched to these products instead of plastics. Customers love them!&rdquo;">&ldquo;Sản phẩm mo cau của Đất Tổ Star Eco rất đẹp và chất lượng. Nhà hàng chúng tôi đã chuyển hoàn toàn sang dùng sản phẩm này thay thế đồ nhựa. Khách hàng rất thích!&rdquo;</div><div class="testimonial-author"><div class="testimonial-avatar">NT</div><div class="testimonial-info"><h5>Nguyễn Thanh Tùng</h5><p data-vi="Giám đốc Nhà hàng Xanh, Hà Nội" data-en="Director, Xanh Restaurant, Hanoi">Giám đốc Nhà hàng Xanh, Hà Nội</p></div><div class="testimonial-flag">&#127483;&#127475;</div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testimonial-text" data-vi="&ldquo;Chất lượng tuyệt vời! Chúng tôi nhập khẩu sản phẩm này cho chuỗi nhà hàng ở California. Khách hàng Mỹ rất ấn tượng với sản phẩm tự nhiên này.&rdquo;" data-en="&ldquo;Excellent quality! We import these products for our restaurant chain in California. American customers are very impressed with these natural products.&rdquo;">&ldquo;Chất lượng tuyệt vời! Chúng tôi nhập khẩu sản phẩm này cho chuỗi nhà hàng ở California. Khách hàng Mỹ rất ấn tượng với sản phẩm tự nhiên này.&rdquo;</div><div class="testimonial-author"><div class="testimonial-avatar">JM</div><div class="testimonial-info"><h5>James Miller</h5><p data-vi="CEO, GreenDine Co., California, Mỹ" data-en="CEO, GreenDine Co., California, USA">CEO, GreenDine Co., California, Mỹ</p></div><div class="testimonial-flag">&#127482;&#127480;</div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testimonial-text" data-vi="&ldquo;Sản phẩm rất phù hợp với văn hoá ẩm thực Nhật Bản. Chúng tôi sử dụng cho các món sushi và sashimi, khách hàng đánh giá cao về tính thẩm mỹ và chất lượng.&rdquo;" data-en="&ldquo;These products perfectly match Japanese food culture. We use them for sushi and sashimi — customers highly appreciate the aesthetics and quality.&rdquo;">&ldquo;Sản phẩm rất phù hợp với văn hoá ẩm thực Nhật Bản. Chúng tôi sử dụng cho các món sushi và sashimi, khách hàng đánh giá cao về tính thẩm mỹ và chất lượng.&rdquo;</div><div class="testimonial-author"><div class="testimonial-avatar">TY</div><div class="testimonial-info"><h5>Tanaka Yuki</h5><p data-vi="Quản lý chuỗi Izakaya, Tokyo, Nhật Bản" data-en="Izakaya Chain Manager, Tokyo, Japan">Quản lý chuỗi Izakaya, Tokyo, Nhật Bản</p></div><div class="testimonial-flag">&#127471;&#127477;</div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testimonial-text" data-vi="&ldquo;Chúng tôi đã tìm kiếm sản phẩm thay thế nhựa từ lâu và Đất Tổ Star Eco là lựa chọn hoàn hảo. Giao hàng đúng hẹn, chất lượng đồng đều, rất hài lòng.&rdquo;" data-en="&ldquo;We've been searching for plastic alternatives for a long time, and Dat To Star Eco is the perfect choice. On-time delivery, consistent quality — very satisfied.&rdquo;">&ldquo;Chúng tôi đã tìm kiếm sản phẩm thay thế nhựa từ lâu và Đất Tổ Star Eco là lựa chọn hoàn hảo. Giao hàng đúng hẹn, chất lượng đồng đều, rất hài lòng.&rdquo;</div><div class="testimonial-author"><div class="testimonial-avatar">PJ</div><div class="testimonial-info"><h5>Park Ji-hoon</h5><p data-vi="Giám đốc mua hàng, EcoMart, Seoul, Hàn Quốc" data-en="Procurement Director, EcoMart, Seoul, South Korea">Giám đốc mua hàng, EcoMart, Seoul, Hàn Quốc</p></div><div class="testimonial-flag">&#127472;&#127479;</div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testimonial-text" data-vi="&ldquo;Sản phẩm đạt chuẩn CE châu Âu, chúng tôi phân phối tại Đức và Pháp. Khách hàng châu Âu đánh giá cao về tính bền vững và thiết kế tự nhiên.&rdquo;" data-en="&ldquo;CE-certified for the European market, we distribute in Germany and France. European customers value the sustainability and natural design.&rdquo;">&ldquo;Sản phẩm đạt chuẩn CE châu Âu, chúng tôi phân phối tại Đức và Pháp. Khách hàng châu Âu đánh giá cao về tính bền vững và thiết kế tự nhiên.&rdquo;</div><div class="testimonial-author"><div class="testimonial-avatar">KW</div><div class="testimonial-info"><h5>Klaus Weber</h5><p data-vi="CEO, EcoLeaf GmbH, Berlin, Đức" data-en="CEO, EcoLeaf GmbH, Berlin, Germany">CEO, EcoLeaf GmbH, Berlin, Đức</p></div><div class="testimonial-flag">&#127465;&#127466;</div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testimonial-text" data-vi="&ldquo;Công ty chúng tôi chuyên cung cấp bao bì xanh cho thị trường Canada. Sản phẩm của Đất Tổ Star Eco là một trong những sản phẩm tốt nhất chúng tôi từng nhập.&rdquo;" data-en="&ldquo;Our company specializes in green packaging for the Canadian market. Dat To Star Eco's products are among the best we've ever imported.&rdquo;">&ldquo;Công ty chúng tôi chuyên cung cấp bao bì xanh cho thị trường Canada. Sản phẩm của Đất Tổ Star Eco là một trong những sản phẩm tốt nhất chúng tôi từng nhập.&rdquo;</div><div class="testimonial-author"><div class="testimonial-avatar">SL</div><div class="testimonial-info"><h5>Sarah Leblanc</h5><p data-vi="Giám đốc, GreenPack Inc., Toronto, Canada" data-en="Director, GreenPack Inc., Toronto, Canada">Giám đốc, GreenPack Inc., Toronto, Canada</p></div><div class="testimonial-flag">&#127464;&#127462;</div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div><div class="testimonial-text" data-vi="&ldquo;Chúng tôi sử dụng sản phẩm Đất Tổ Star Eco cho các sự kiện ẩm thực tại Paris. Thiết kế tự nhiên của đĩa lá mo cau tạo nên sự độc đáo cho bàn tiệc.&rdquo;" data-en="&ldquo;We use Dat To Star Eco products for culinary events in Paris. The natural design of areca leaf plates creates a unique touch for banquets.&rdquo;">&ldquo;Chúng tôi sử dụng sản phẩm Đất Tổ Star Eco cho các sự kiện ẩm thực tại Paris. Thiết kế tự nhiên của đĩa lá mo cau tạo nên sự độc đáo cho bàn tiệc.&rdquo;</div><div class="testimonial-author"><div class="testimonial-avatar">MD</div><div class="testimonial-info"><h5>Marie Dupont</h5><p data-vi="Chef trưởng, Le Vert Restaurant, Paris, Pháp" data-en="Head Chef, Le Vert Restaurant, Paris, France">Chef trưởng, Le Vert Restaurant, Paris, Pháp</p></div><div class="testimonial-flag">&#127467;&#127479;</div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testimonial-text" data-vi="&ldquo;Chuỗi siêu thị chúng tôi đã đưa sản phẩm Đất Tổ Star Eco lên kệ hàng từ 2025. Người tiêu dùng Việt Nam ngày càng ưu tiên sản phẩm xanh, doanh số tăng 40% mỗi tháng.&rdquo;" data-en="&ldquo;Our supermarket chain has stocked Dat To Star Eco products since 2025. Vietnamese consumers increasingly prefer green products — sales grow 40% monthly.&rdquo;">&ldquo;Chuỗi siêu thị chúng tôi đã đưa sản phẩm Đất Tổ Star Eco lên kệ hàng từ 2025. Người tiêu dùng Việt Nam ngày càng ưu tiên sản phẩm xanh, doanh số tăng 40% mỗi tháng.&rdquo;</div><div class="testimonial-author"><div class="testimonial-avatar">LH</div><div class="testimonial-info"><h5>Lê Hoàng Mai</h5><p data-vi="Giám đốc thu mua, Siêu thị GreenMart, TP.HCM" data-en="Procurement Director, GreenMart Supermarket, HCMC">Giám đốc thu mua, Siêu thị GreenMart, TP.HCM</p></div><div class="testimonial-flag">&#127483;&#127475;</div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testimonial-text" data-vi="&ldquo;Sản phẩm hoàn toàn phù hợp với xu hướng tiêu dùng xanh tại châu Âu. Chúng tôi đã đặt hàng lớn để phân phối tại Hà Lan và Bỉ. Rất chuyên nghiệp!&rdquo;" data-en="&ldquo;Products perfectly align with green consumption trends in Europe. We've placed large orders for distribution in the Netherlands and Belgium. Very professional!&rdquo;">&ldquo;Sản phẩm hoàn toàn phù hợp với xu hướng tiêu dùng xanh tại châu Âu. Chúng tôi đã đặt hàng lớn để phân phối tại Hà Lan và Bỉ. Rất chuyên nghiệp!&rdquo;</div><div class="testimonial-author"><div class="testimonial-avatar">PV</div><div class="testimonial-info"><h5>Pieter van Dijk</h5><p data-vi="CEO, SustainPack BV, Amsterdam, Hà Lan" data-en="CEO, SustainPack BV, Amsterdam, Netherlands">CEO, SustainPack BV, Amsterdam, Hà Lan</p></div><div class="testimonial-flag">&#127475;&#127473;</div></div></div>
+        <div class="testimonial-card"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="testimonial-text" data-vi="&ldquo;Sản phẩm tuyệt vời cho các sự kiện ngoài trời tại Úc. 100% phân huỷ tự nhiên, không lo về rác thải. Chất lượng vượt mong đợi so với giá cả.&rdquo;" data-en="&ldquo;Wonderful products for outdoor events in Australia. 100% biodegradable with zero waste worry. Quality exceeds expectations for the price.&rdquo;">&ldquo;Sản phẩm tuyệt vời cho các sự kiện ngoài trời tại Úc. 100% phân huỷ tự nhiên, không lo về rác thải. Chất lượng vượt mong đợi so với giá cả.&rdquo;</div><div class="testimonial-author"><div class="testimonial-avatar">EW</div><div class="testimonial-info"><h5>Emily Watson</h5><p data-vi="Event Manager, EcoEvents, Sydney, Úc" data-en="Event Manager, EcoEvents, Sydney, Australia">Event Manager, EcoEvents, Sydney, Úc</p></div><div class="testimonial-flag">&#127462;&#127482;</div></div></div>
     </div>
 </section>
 
 <!-- Certificates -->
 <section class="certificates" id="certificates">
     <div class="section-header reveal">
-        <div class="section-tag" data-vi="Chung nhan" data-en="Certifications">Chung nhan</div>
-        <h2 data-vi="Chung Nhan & Giai Thuong" data-en="Certifications & Awards">Chung Nhan & Giai Thuong</h2>
-        <p data-vi="Khang dinh chat luong va uy tin voi khach hang trong nuoc va quoc te" data-en="Affirming quality and credibility with domestic and international clients">Khang dinh chat luong va uy tin voi khach hang trong nuoc va quoc te</p>
+        <div class="section-tag" data-vi="Chứng nhận" data-en="Certifications">Chứng nhận</div>
+        <h2 data-vi="Chứng Nhận & Giải Thưởng" data-en="Certifications & Awards">Chứng Nhận & Giải Thưởng</h2>
+        <p data-vi="Khẳng định chất lượng và uy tín với khách hàng trong nước và quốc tế" data-en="Affirming quality and credibility with domestic and international clients">Khẳng định chất lượng và uy tín với khách hàng trong nước và quốc tế</p>
     </div>
     <div class="cert-grid reveal">
-        <div class="cert-card"><div class="cert-card-icon">&#127942;</div><h4>ISO 22000:2018</h4><p data-vi="He thong quan ly an toan thuc pham dat tieu chuan quoc te" data-en="International food safety management system">He thong quan ly an toan thuc pham dat tieu chuan quoc te</p></div>
-        <div class="cert-card"><div class="cert-card-icon">&#127466;&#127482;</div><h4>CE Marking</h4><p data-vi="Dap ung tieu chuan Lien minh Chau Au" data-en="Meets European Union standards">Dap ung tieu chuan Lien minh Chau Au</p></div>
-        <div class="cert-card"><div class="cert-card-icon">&#11088;</div><h4>OCOP</h4><p data-vi="Chuong trinh moi xa mot san pham" data-en="One Commune One Product program">Chuong trinh moi xa mot san pham</p></div>
-        <div class="cert-card"><div class="cert-card-icon">&#127799;</div><h4 data-vi="Hang Viet Chat Luong" data-en="Vietnam Quality">Hang Viet Chat Luong</h4><p data-vi="Duoc nguoi tieu dung tin tuong" data-en="Trusted by Vietnamese consumers">Duoc nguoi tieu dung tin tuong</p></div>
+        <div class="cert-card"><div class="cert-card-icon">&#127942;</div><h4>ISO 22000:2018</h4><p data-vi="Hệ thống quản lý an toàn thực phẩm đạt tiêu chuẩn quốc tế" data-en="International food safety management system">Hệ thống quản lý an toàn thực phẩm đạt tiêu chuẩn quốc tế</p></div>
+        <div class="cert-card"><div class="cert-card-icon">&#127466;&#127482;</div><h4>CE Marking</h4><p data-vi="Đáp ứng tiêu chuẩn Liên minh Châu Âu" data-en="Meets European Union standards">Đáp ứng tiêu chuẩn Liên minh Châu Âu</p></div>
+        <div class="cert-card"><div class="cert-card-icon">&#11088;</div><h4>OCOP</h4><p data-vi="Chương trình mỗi xã một sản phẩm" data-en="One Commune One Product program">Chương trình mỗi xã một sản phẩm</p></div>
+        <div class="cert-card"><div class="cert-card-icon">&#127799;</div><h4 data-vi="Hàng Việt Chất Lượng" data-en="Vietnam Quality">Hàng Việt Chất Lượng</h4><p data-vi="Được người tiêu dùng tin tưởng" data-en="Trusted by Vietnamese consumers">Được người tiêu dùng tin tưởng</p></div>
     </div>
-    <div class="cert-image-section reveal">
-        <img src="ảnh sản phẩm/1499412527257154869.jpg" alt="ISO 22000 Certificate" class="cert-photo" onclick="openLightbox(this)">
+    <div class="cert-files reveal">
+        <img src="ảnh sản phẩm/1499412527257154869.jpg" alt="Chứng nhận ISO 22000" class="cert-photo" onclick="openLightbox(this)">
+        <a href="giấy chứng nhận/CamScanner 6-3-26 16.53.pdf" target="_blank" class="cert-pdf-link">
+            <div class="cert-pdf-icon">&#128196;</div>
+            <h5 data-vi="Giấy Chứng Nhận ISO 22000:2018" data-en="ISO 22000:2018 Certificate">Giấy Chứng Nhận ISO 22000:2018</h5>
+            <span data-vi="&#128196; Xem file PDF" data-en="&#128196; View PDF">&#128196; Xem file PDF</span>
+        </a>
+        <a href="giấy chứng nhận/Scan_0092_0001.pdf" target="_blank" class="cert-pdf-link">
+            <div class="cert-pdf-icon">&#128196;</div>
+            <h5 data-vi="Giấy Đăng Ký Kinh Doanh & Chứng Nhận" data-en="Business Registration & Certificate">Giấy Đăng Ký Kinh Doanh & Chứng Nhận</h5>
+            <span data-vi="&#128196; Xem file PDF" data-en="&#128196; View PDF">&#128196; Xem file PDF</span>
+        </a>
     </div>
 </section>
 
 <!-- Capacity -->
 <section class="capacity" id="capacity">
     <div class="section-header reveal">
-        <div class="section-tag" data-vi="Nang luc" data-en="Capacity">Nang luc</div>
-        <h2 data-vi="Nang Luc San Xuat" data-en="Production Capacity">Nang Luc San Xuat</h2>
-        <p data-vi="Quy mo san xuat linh hoat, san sang dap ung don hang lon" data-en="Flexible production scale, ready for large orders">Quy mo san xuat linh hoat, san sang dap ung don hang lon</p>
+        <div class="section-tag" data-vi="Năng lực" data-en="Capacity">Năng lực</div>
+        <h2 data-vi="Năng Lực Sản Xuất" data-en="Production Capacity">Năng Lực Sản Xuất</h2>
+        <p data-vi="Quy mô sản xuất linh hoạt, sẵn sàng đáp ứng đơn hàng lớn" data-en="Flexible production scale, ready for large orders">Quy mô sản xuất linh hoạt, sẵn sàng đáp ứng đơn hàng lớn</p>
     </div>
     <div class="capacity-grid reveal">
-        <div class="capacity-card"><div class="capacity-num">150K</div><h4 data-vi="San pham/thang" data-en="Products/month">San pham/thang</h4><p data-vi="Cong suat giai doan 1" data-en="Phase 1 capacity">Cong suat giai doan 1</p></div>
-        <div class="capacity-card"><div class="capacity-num">300K</div><h4 data-vi="Ke hoach mo rong" data-en="Expansion plan">Ke hoach mo rong</h4><p data-vi="Tang gap doi khi dau tu day chuyen thu 2" data-en="Doubled with 2nd production line">Tang gap doi khi dau tu day chuyen thu 2</p></div>
-        <div class="capacity-card"><div class="capacity-num">1500</div><h4 data-vi="m&#178; nha xuong" data-en="m&#178; factory">m&#178; nha xuong</h4><p data-vi="Day chuyen khep kin" data-en="Closed-loop production line">Day chuyen khep kin</p></div>
-        <div class="capacity-card"><div class="capacity-num">100%</div><h4 data-vi="Tu nhien" data-en="Natural">Tu nhien</h4><p data-vi="Nguyen lieu Phu Tho, Tuyen Quang, Yen Bai" data-en="From Phu Tho, Tuyen Quang, Yen Bai">Nguyen lieu Phu Tho, Tuyen Quang, Yen Bai</p></div>
+        <div class="capacity-card"><div class="capacity-num">150K</div><h4 data-vi="Sản phẩm/tháng" data-en="Products/month">Sản phẩm/tháng</h4><p data-vi="Công suất giai đoạn 1" data-en="Phase 1 capacity">Công suất giai đoạn 1</p></div>
+        <div class="capacity-card"><div class="capacity-num">300K</div><h4 data-vi="Kế hoạch mở rộng" data-en="Expansion plan">Kế hoạch mở rộng</h4><p data-vi="Tăng gấp đôi khi đầu tư dây chuyền thứ 2" data-en="Doubled with 2nd production line">Tăng gấp đôi khi đầu tư dây chuyền thứ 2</p></div>
+        <div class="capacity-card"><div class="capacity-num">1500</div><h4 data-vi="m&#178; nhà xưởng" data-en="m&#178; factory">m&#178; nhà xưởng</h4><p data-vi="Dây chuyền khép kín" data-en="Closed-loop production line">Dây chuyền khép kín</p></div>
+        <div class="capacity-card"><div class="capacity-num">100%</div><h4 data-vi="Tự nhiên" data-en="Natural">Tự nhiên</h4><p data-vi="Nguyên liệu Phú Thọ, Tuyên Quang, Yên Bái" data-en="From Phu Tho, Tuyen Quang, Yen Bai">Nguyên liệu Phú Thọ, Tuyên Quang, Yên Bái</p></div>
     </div>
 </section>
 
 <!-- Contact -->
 <section class="contact" id="contact">
     <div class="section-header reveal">
-        <div class="section-tag" data-vi="Lien he" data-en="Contact">Lien he</div>
-        <h2 data-vi="Ket Noi Voi Chung Toi" data-en="Connect With Us">Ket Noi Voi Chung Toi</h2>
-        <p data-vi="San sang tu van va hop tac — hay lien he de biet them chi tiet" data-en="Ready to consult and cooperate — contact us for more details">San sang tu van va hop tac — hay lien he de biet them chi tiet</p>
+        <div class="section-tag" data-vi="Liên hệ" data-en="Contact">Liên hệ</div>
+        <h2 data-vi="Kết Nối Với Chúng Tôi" data-en="Connect With Us">Kết Nối Với Chúng Tôi</h2>
+        <p data-vi="Sẵn sàng tư vấn và hợp tác — hãy liên hệ để biết thêm chi tiết" data-en="Ready to consult and cooperate — contact us for more details">Sẵn sàng tư vấn và hợp tác — hãy liên hệ để biết thêm chi tiết</p>
     </div>
     <div class="contact-grid reveal">
         <div class="contact-info-card">
-            <h3>HTX Sinh Thai Dat To Star Eco</h3>
-            <p data-vi="Xanh Hoa Tuong Lai Viet" data-en="Greening Vietnam's Future">Xanh Hoa Tuong Lai Viet</p>
-            <div class="contact-item"><div class="contact-item-icon">&#128205;</div><div class="contact-item-text"><h4 data-vi="Dia chi" data-en="Address">Dia chi</h4><p>Khu 12, Phuong Van Phu, Tinh Phu Tho, Viet Nam</p></div></div>
-            <div class="contact-item"><div class="contact-item-icon">&#128222;</div><div class="contact-item-text"><h4 data-vi="Dien thoai" data-en="Phone">Dien thoai</h4><p>0364 383 336 | 0865 402 268</p></div></div>
+            <h3>HTX Sinh Thái Đất Tổ Star Eco</h3>
+            <p data-vi="Xanh Hoá Tương Lai Việt" data-en="Greening Vietnam's Future">Xanh Hoá Tương Lai Việt</p>
+            <div class="contact-item"><div class="contact-item-icon">&#128205;</div><div class="contact-item-text"><h4 data-vi="Địa chỉ" data-en="Address">Địa chỉ</h4><p>Khu 12, Phường Vân Phú, Tỉnh Phú Thọ, Việt Nam</p></div></div>
+            <div class="contact-item"><div class="contact-item-icon">&#128222;</div><div class="contact-item-text"><h4 data-vi="Điện thoại" data-en="Phone">Điện thoại</h4><p>0364 383 336 | 0865 402 268</p></div></div>
             <div class="contact-item"><div class="contact-item-icon">&#9993;&#65039;</div><div class="contact-item-text"><h4>Email</h4><p>Thanhvt1.vt@gmail.com</p></div></div>
-            <div class="contact-item"><div class="contact-item-icon">&#128196;</div><div class="contact-item-text"><h4 data-vi="Ma so doanh nghiep" data-en="Business ID">Ma so doanh nghiep</h4><p>2601142468</p></div></div>
+            <div class="contact-item"><div class="contact-item-icon">&#128196;</div><div class="contact-item-text"><h4 data-vi="Mã số doanh nghiệp" data-en="Business ID">Mã số doanh nghiệp</h4><p>2601142468</p></div></div>
         </div>
         <div class="contact-form">
-            <h3 data-vi="Gui Yeu Cau Tu Van" data-en="Send An Inquiry">Gui Yeu Cau Tu Van</h3>
+            <h3 data-vi="Gửi Yêu Cầu Tư Vấn" data-en="Send An Inquiry">Gửi Yêu Cầu Tư Vấn</h3>
             <form onsubmit="handleSubmit(event)">
                 <div class="form-row">
-                    <div class="form-group"><label data-vi="Ho va ten *" data-en="Full name *">Ho va ten *</label><input type="text" data-vi-ph="Nhap ho ten..." data-en-ph="Enter your name..." placeholder="Nhap ho ten..." required></div>
-                    <div class="form-group"><label data-vi="So dien thoai *" data-en="Phone number *">So dien thoai *</label><input type="tel" data-vi-ph="Nhap so dien thoai..." data-en-ph="Enter phone number..." placeholder="Nhap so dien thoai..." required></div>
+                    <div class="form-group"><label data-vi="Họ và tên *" data-en="Full name *">Họ và tên *</label><input type="text" data-vi-ph="Nhập họ tên..." data-en-ph="Enter your name..." placeholder="Nhập họ tên..." required></div>
+                    <div class="form-group"><label data-vi="Số điện thoại *" data-en="Phone number *">Số điện thoại *</label><input type="tel" data-vi-ph="Nhập số điện thoại..." data-en-ph="Enter phone number..." placeholder="Nhập số điện thoại..." required></div>
                 </div>
-                <div class="form-group"><label>Email</label><input type="email" data-vi-ph="Nhap email..." data-en-ph="Enter email..." placeholder="Nhap email..."></div>
-                <div class="form-group"><label data-vi="San pham quan tam" data-en="Product of interest">San pham quan tam</label>
-                    <select>
-                        <option value="" data-vi="-- Chon san pham --" data-en="-- Select product --">-- Chon san pham --</option>
-                        <option data-vi="Dia tron mo cau" data-en="Round Areca Plate">Dia tron mo cau</option>
-                        <option data-vi="Dia vuong mo cau" data-en="Square Areca Plate">Dia vuong mo cau</option>
-                        <option data-vi="Khay chu nhat" data-en="Rectangular Tray">Khay chu nhat</option>
-                        <option data-vi="Chen tron / vuong" data-en="Round / Square Bowl">Chen tron / vuong</option>
-                        <option data-vi="Muong / Thia" data-en="Areca Spoon">Muong / Thia</option>
-                        <option data-vi="Dia trai tim" data-en="Heart-Shaped Plate">Dia trai tim</option>
-                        <option data-vi="Dat hang so luong lon" data-en="Bulk order">Dat hang so luong lon</option>
-                        <option data-vi="Khac" data-en="Other">Khac</option>
-                    </select>
+                <div class="form-group"><label>Email</label><input type="email" data-vi-ph="Nhập email..." data-en-ph="Enter email..." placeholder="Nhập email..."></div>
+                <div class="form-group"><label data-vi="Sản phẩm quan tâm" data-en="Product of interest">Sản phẩm quan tâm</label>
+                    <select><option value="" data-vi="-- Chọn sản phẩm --" data-en="-- Select product --">-- Chọn sản phẩm --</option><option data-vi="Đĩa tròn mo cau" data-en="Round Areca Plate">Đĩa tròn mo cau</option><option data-vi="Đĩa vuông mo cau" data-en="Square Areca Plate">Đĩa vuông mo cau</option><option data-vi="Khay chữ nhật" data-en="Rectangular Tray">Khay chữ nhật</option><option data-vi="Chén tròn / vuông" data-en="Round / Square Bowl">Chén tròn / vuông</option><option data-vi="Muỗng / Thìa" data-en="Areca Spoon">Muỗng / Thìa</option><option data-vi="Đĩa trái tim" data-en="Heart-Shaped Plate">Đĩa trái tim</option><option data-vi="Đặt hàng số lượng lớn" data-en="Bulk order">Đặt hàng số lượng lớn</option><option data-vi="Khác" data-en="Other">Khác</option></select>
                 </div>
-                <div class="form-group"><label data-vi="Noi dung *" data-en="Message *">Noi dung *</label><textarea data-vi-ph="Nhap noi dung can tu van..." data-en-ph="Enter your message..." placeholder="Nhap noi dung can tu van..." required></textarea></div>
-                <button type="submit" class="form-submit" data-vi="Gui Yeu Cau &#8594;" data-en="Send Inquiry &#8594;">Gui Yeu Cau &#8594;</button>
+                <div class="form-group"><label data-vi="Nội dung *" data-en="Message *">Nội dung *</label><textarea data-vi-ph="Nhập nội dung cần tư vấn..." data-en-ph="Enter your message..." placeholder="Nhập nội dung cần tư vấn..." required></textarea></div>
+                <button type="submit" class="form-submit" data-vi="Gửi Yêu Cầu &#8594;" data-en="Send Inquiry &#8594;">Gửi Yêu Cầu &#8594;</button>
             </form>
         </div>
     </div>
@@ -733,193 +570,40 @@
 <footer class="footer">
     <div class="footer-grid">
         <div class="footer-brand">
-            <div class="brand-name">&#127807; Dat To Star Eco</div>
-            <div class="brand-slogan">Xanh Hoa Tuong Lai Viet</div>
-            <p data-vi="HTX Sinh Thai Dat To Star Eco — Tien phong san xuat san pham sinh hoc tu mo cau va la tu nhien. Thay the do nhua dung mot lan, gop phan bao ve moi truong." data-en="Dat To Star Eco Cooperative — Pioneering the production of bio-products from areca palm sheaths and natural leaves. Replacing single-use plastics, contributing to environmental protection.">HTX Sinh Thai Dat To Star Eco — Tien phong san xuat san pham sinh hoc tu mo cau va la tu nhien. Thay the do nhua dung mot lan, gop phan bao ve moi truong.</p>
+            <div class="brand-name">&#127807; Đất Tổ Star Eco</div>
+            <div class="brand-slogan">Xanh Hoá Tương Lai Việt</div>
+            <p data-vi="HTX Sinh Thái Đất Tổ Star Eco — Tiên phong sản xuất sản phẩm sinh học từ mo cau và lá tự nhiên. Thay thế đồ nhựa dùng một lần, góp phần bảo vệ môi trường." data-en="Dat To Star Eco Cooperative — Pioneering the production of bio-products from areca palm sheaths and natural leaves. Replacing single-use plastics, contributing to environmental protection.">HTX Sinh Thái Đất Tổ Star Eco — Tiên phong sản xuất sản phẩm sinh học từ mo cau và lá tự nhiên. Thay thế đồ nhựa dùng một lần, góp phần bảo vệ môi trường.</p>
         </div>
-        <div>
-            <h4 data-vi="Dieu huong" data-en="Navigation">Dieu huong</h4>
-            <ul>
-                <li><a href="#hero" data-vi="Trang chu" data-en="Home">Trang chu</a></li>
-                <li><a href="#about" data-vi="Gioi thieu" data-en="About">Gioi thieu</a></li>
-                <li><a href="#products" data-vi="San pham" data-en="Products">San pham</a></li>
-                <li><a href="#process" data-vi="Quy trinh" data-en="Process">Quy trinh</a></li>
-                <li><a href="#certificates" data-vi="Chung nhan" data-en="Certificates">Chung nhan</a></li>
-                <li><a href="#contact" data-vi="Lien he" data-en="Contact">Lien he</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4 data-vi="San pham" data-en="Products">San pham</h4>
-            <ul>
-                <li><a href="#products" data-vi="Dia tron mo cau" data-en="Round Plate">Dia tron mo cau</a></li>
-                <li><a href="#products" data-vi="Dia vuong mo cau" data-en="Square Plate">Dia vuong mo cau</a></li>
-                <li><a href="#products" data-vi="Khay chu nhat" data-en="Rectangular Tray">Khay chu nhat</a></li>
-                <li><a href="#products" data-vi="Chen tron / vuong" data-en="Bowls">Chen tron / vuong</a></li>
-                <li><a href="#products" data-vi="Dia trai tim" data-en="Heart Plate">Dia trai tim</a></li>
-                <li><a href="#products" data-vi="Muong / Thia" data-en="Spoons">Muong / Thia</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4 data-vi="Lien he" data-en="Contact">Lien he</h4>
-            <div class="footer-contact-item"><span>&#128205;</span><span>Khu 12, Phuong Van Phu, Tinh Phu Tho</span></div>
-            <div class="footer-contact-item"><span>&#128222;</span><span>0364 383 336 | 0865 402 268</span></div>
-            <div class="footer-contact-item"><span>&#9993;&#65039;</span><span>Thanhvt1.vt@gmail.com</span></div>
-            <div class="footer-contact-item"><span>&#128196;</span><span>MST: 2601142468</span></div>
-        </div>
+        <div><h4 data-vi="Điều hướng" data-en="Navigation">Điều hướng</h4><ul><li><a href="#hero" data-vi="Trang chủ" data-en="Home">Trang chủ</a></li><li><a href="#about" data-vi="Giới thiệu" data-en="About">Giới thiệu</a></li><li><a href="#products" data-vi="Sản phẩm" data-en="Products">Sản phẩm</a></li><li><a href="#process" data-vi="Quy trình" data-en="Process">Quy trình</a></li><li><a href="#certificates" data-vi="Chứng nhận" data-en="Certificates">Chứng nhận</a></li><li><a href="#contact" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li></ul></div>
+        <div><h4 data-vi="Sản phẩm" data-en="Products">Sản phẩm</h4><ul><li><a href="#products" data-vi="Đĩa tròn mo cau" data-en="Round Plate">Đĩa tròn mo cau</a></li><li><a href="#products" data-vi="Đĩa vuông mo cau" data-en="Square Plate">Đĩa vuông mo cau</a></li><li><a href="#products" data-vi="Khay chữ nhật" data-en="Rectangular Tray">Khay chữ nhật</a></li><li><a href="#products" data-vi="Chén tròn / vuông" data-en="Bowls">Chén tròn / vuông</a></li><li><a href="#products" data-vi="Đĩa trái tim" data-en="Heart Plate">Đĩa trái tim</a></li><li><a href="#products" data-vi="Muỗng / Thìa" data-en="Spoons">Muỗng / Thìa</a></li></ul></div>
+        <div><h4 data-vi="Liên hệ" data-en="Contact">Liên hệ</h4><div class="footer-contact-item"><span>&#128205;</span><span>Khu 12, Phường Vân Phú, Tỉnh Phú Thọ</span></div><div class="footer-contact-item"><span>&#128222;</span><span>0364 383 336 | 0865 402 268</span></div><div class="footer-contact-item"><span>&#9993;&#65039;</span><span>Thanhvt1.vt@gmail.com</span></div><div class="footer-contact-item"><span>&#128196;</span><span>MST: 2601142468</span></div></div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2025 HTX Sinh Thai Dat To Star Eco. <span data-vi="Moi quyen duoc bao luu." data-en="All rights reserved.">Moi quyen duoc bao luu.</span></p>
-        <div class="footer-social">
-            <a href="#" title="Facebook">f</a>
-            <a href="#" title="Zalo">Z</a>
-            <a href="#" title="YouTube">&#9654;</a>
-            <a href="#" title="TikTok">T</a>
-        </div>
+        <p>&copy; 2025 HTX Sinh Thái Đất Tổ Star Eco. <span data-vi="Mọi quyền được bảo lưu." data-en="All rights reserved.">Mọi quyền được bảo lưu.</span></p>
+        <div class="footer-social"><a href="#" title="Facebook">f</a><a href="#" title="Zalo">Z</a><a href="#" title="YouTube">&#9654;</a><a href="#" title="TikTok">T</a></div>
     </div>
 </footer>
 
-<!-- Scroll Top -->
 <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
-
-<!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="lightbox-close">&times;</button><img id="lightboxImg" src="" alt=""></div>
 
 <script>
-// ===== LANGUAGE SYSTEM =====
-let currentLang = 'vi';
-
-// Auto-detect language by IP using free API
-async function detectLanguage() {
-    try {
-        const res = await fetch('https://ipapi.co/json/');
-        const data = await res.json();
-        if (data.country_code !== 'VN') {
-            switchLang('en');
-        }
-    } catch(e) {
-        // Default to Vietnamese if detection fails
-    }
-}
-
-function switchLang(lang) {
-    currentLang = lang;
-    // Update lang buttons
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
-    });
-    // Update all elements with data-vi/data-en
-    document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-        const text = el.getAttribute('data-' + lang);
-        if (text) {
-            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                // Skip, handled by placeholder
-            } else {
-                el.innerHTML = text;
-            }
-        }
-    });
-    // Update placeholders
-    document.querySelectorAll('[data-' + lang + '-ph]').forEach(el => {
-        el.placeholder = el.getAttribute('data-' + lang + '-ph');
-    });
-    // Update page title
-    document.title = lang === 'vi'
-        ? 'Dat To Star Eco | Xanh Hoa Tuong Lai Viet'
-        : 'Dat To Star Eco | Greening Vietnam\'s Future';
-    document.documentElement.lang = lang;
-}
-
-// Loader
-window.addEventListener('load', () => {
-    setTimeout(() => document.getElementById('loader').classList.add('hidden'), 800);
-    detectLanguage();
-});
-
-// Navbar scroll
-window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 500);
-});
-
-// Hamburger
-document.getElementById('hamburger').addEventListener('click', function() {
-    this.classList.toggle('active');
-    document.getElementById('navLinks').classList.toggle('active');
-});
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('hamburger').classList.remove('active');
-        document.getElementById('navLinks').classList.remove('active');
-    });
-});
-
-// Active nav on scroll
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY + 100;
-    sections.forEach(s => {
-        const link = document.querySelector('.nav-links a[href="#' + s.id + '"]');
-        if (link) link.classList.toggle('active', scrollY >= s.offsetTop && scrollY < s.offsetTop + s.offsetHeight);
-    });
-});
-
-// Product filter
-function filterProducts(cat) {
-    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-    document.querySelectorAll('.product-card').forEach(c => {
-        const show = cat === 'all' || c.dataset.cat === cat;
-        c.style.display = show ? 'block' : 'none';
-        if (show) c.style.animation = 'fadeInUp .5s ease forwards';
-    });
-}
-
-// Lightbox
-function openLightbox(el) {
-    const img = el.tagName === 'IMG' ? el : el.querySelector('img');
-    if (img) { document.getElementById('lightboxImg').src = img.src; document.getElementById('lightbox').classList.add('active'); document.body.style.overflow = 'hidden'; }
-}
-function closeLightbox() { document.getElementById('lightbox').classList.remove('active'); document.body.style.overflow = ''; }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-// Form
-function handleSubmit(e) {
-    e.preventDefault();
-    const msg = currentLang === 'vi'
-        ? 'Cam on ban da gui yeu cau! Chung toi se lien he lai trong thoi gian som nhat.'
-        : 'Thank you for your inquiry! We will contact you as soon as possible.';
-    alert(msg);
-    e.target.reset();
-}
-
-// Scroll reveal
-const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-// Counter animation
-function animateCounters() {
-    document.querySelectorAll('.capacity-num').forEach(el => {
-        const text = el.textContent, match = text.match(/(\d+)/);
-        if (match) {
-            const target = parseInt(match[0]), suffix = text.replace(match[0], '');
-            let current = 0; const step = target / 50;
-            const timer = setInterval(() => {
-                current += step;
-                if (current >= target) { current = target; clearInterval(timer); }
-                el.textContent = Math.floor(current) + suffix;
-            }, 30);
-        }
-    });
-}
-const capSec = document.querySelector('.capacity');
-if (capSec) {
-    const capObs = new IntersectionObserver(entries => {
-        if (entries[0].isIntersecting) { animateCounters(); capObs.disconnect(); }
-    }, { threshold: 0.3 });
-    capObs.observe(capSec);
-}
+let currentLang='vi';
+async function detectLanguage(){try{const r=await fetch('https://ipapi.co/json/');const d=await r.json();if(d.country_code!=='VN')switchLang('en')}catch(e){}}
+function switchLang(lang){currentLang=lang;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.trim().toLowerCase()===lang));document.querySelectorAll('[data-'+lang+']').forEach(el=>{const t=el.getAttribute('data-'+lang);if(t&&el.tagName!=='INPUT'&&el.tagName!=='TEXTAREA')el.innerHTML=t});document.querySelectorAll('[data-'+lang+'-ph]').forEach(el=>{el.placeholder=el.getAttribute('data-'+lang+'-ph')});document.title=lang==='vi'?'Đất Tổ Star Eco | Xanh Hoá Tương Lai Việt':'Dat To Star Eco | Greening Vietnam\'s Future';document.documentElement.lang=lang}
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),800);detectLanguage()});
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>500)});
+document.getElementById('hamburger').addEventListener('click',function(){this.classList.toggle('active');document.getElementById('navLinks').classList.toggle('active')});
+document.querySelectorAll('.nav-links a').forEach(l=>l.addEventListener('click',()=>{document.getElementById('hamburger').classList.remove('active');document.getElementById('navLinks').classList.remove('active')}));
+const sections=document.querySelectorAll('section[id]');window.addEventListener('scroll',()=>{const y=window.scrollY+100;sections.forEach(s=>{const l=document.querySelector('.nav-links a[href="#'+s.id+'"]');if(l)l.classList.toggle('active',y>=s.offsetTop&&y<s.offsetTop+s.offsetHeight)})});
+function filterProducts(cat){document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));event.target.classList.add('active');document.querySelectorAll('.product-card').forEach(c=>{const s=cat==='all'||c.dataset.cat===cat;c.style.display=s?'block':'none';if(s)c.style.animation='fadeInUp .5s ease forwards'})}
+function openLightbox(el){const img=el.tagName==='IMG'?el:el.querySelector('img');if(img){document.getElementById('lightboxImg').src=img.src;document.getElementById('lightbox').classList.add('active');document.body.style.overflow='hidden'}}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+async function handleSubmit(e){e.preventDefault();const f=e.target;const name=f.querySelector('input[type="text"]').value;const phone=f.querySelector('input[type="tel"]').value;const email=f.querySelector('input[type="email"]').value||'Không có';const product=f.querySelector('select').value||'Không chọn';const msg=f.querySelector('textarea').value;const text=`🌿 *YÊU CẦU TƯ VẤN MỚI*\n\n👤 *Họ tên:* ${name}\n📞 *SĐT:* ${phone}\n📧 *Email:* ${email}\n📦 *Sản phẩm:* ${product}\n💬 *Nội dung:* ${msg}\n\n⏰ *Thời gian:* ${new Date().toLocaleString('vi-VN')}`;try{await fetch('https://api.telegram.org/bot8093208422:AAE-0dS4xYNQVj1PK29kZf-gg3xrzA9LlYM/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:'-5230758287',text:text,parse_mode:'Markdown'})});alert(currentLang==='vi'?'Cảm ơn bạn đã gửi yêu cầu! Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.':'Thank you for your inquiry! We will contact you as soon as possible.')}catch(err){alert(currentLang==='vi'?'Đã gửi yêu cầu! Cảm ơn bạn.':'Request sent! Thank you.')}f.reset()}
+const revealObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
+function animateCounters(){document.querySelectorAll('.capacity-num').forEach(el=>{const t=el.textContent,m=t.match(/(\d+)/);if(m){const target=parseInt(m[0]),suffix=t.replace(m[0],'');let c=0;const step=target/50;const timer=setInterval(()=>{c+=step;if(c>=target){c=target;clearInterval(timer)}el.textContent=Math.floor(c)+suffix},30)}})}
+const capSec=document.querySelector('.capacity');if(capSec){const capObs=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){animateCounters();capObs.disconnect()}},{threshold:.3});capObs.observe(capSec)}
 </script>
 </body>
 </html>
