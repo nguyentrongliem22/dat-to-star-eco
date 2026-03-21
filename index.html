@@ -22,7 +22,7 @@
         .navbar.scrolled{background:rgba(26,71,42,.98);box-shadow:0 4px 30px rgba(0,0,0,.15)}
         .nav-container{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:70px}
         .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-        .nav-logo-icon{width:45px;height:45px;background:linear-gradient(135deg,var(--green-light),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+        .nav-logo-icon{width:45px;height:45px;border-radius:50%;overflow:hidden;flex-shrink:0}.nav-logo-icon img{width:100%;height:100%;object-fit:cover}
         .nav-logo-text{color:var(--white)}.nav-logo-text .brand{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700}
         .nav-logo-text .slogan{font-size:.65rem;color:var(--green-pale);letter-spacing:2px;text-transform:uppercase}
         .nav-links{display:flex;gap:5px;list-style:none;align-items:center}
@@ -240,6 +240,19 @@
         .lightbox-close{position:absolute;top:20px;right:30px;background:none;border:none;color:var(--white);font-size:2.5rem;cursor:pointer}
         .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
 
+        /* ALBUM */
+        .album{padding:100px 5%;background:var(--bg-light)}
+        .album-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1200px;margin:0 auto}
+        .album-item{border-radius:12px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:1;transition:transform .3s}
+        .album-item:hover{transform:scale(1.03)}
+        .album-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+        .album-item:hover img{transform:scale(1.1)}
+        .album-item:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+        .album-item:nth-child(5){grid-column:span 2;aspect-ratio:auto}
+        .album-show-more{display:none;text-align:center;margin-top:30px}
+        .album-show-more button{background:linear-gradient(135deg,var(--green-main),var(--green-light));color:var(--white);border:none;padding:14px 40px;border-radius:30px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s}
+        .album-show-more button:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(45,106,79,.3)}
+
         /* RESPONSIVE */
         @media(max-width:1024px){
             .hero-container{grid-template-columns:1fr;text-align:center}.hero-content{max-width:100%}.hero-visual{display:none}
@@ -248,6 +261,8 @@
             .values-grid{grid-template-columns:repeat(3,1fr)}.products-grid{grid-template-columns:repeat(3,1fr)}
             .gallery-grid{grid-template-columns:repeat(3,1fr)}.tech-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
             .cert-grid,.capacity-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}
+            .album-grid{grid-template-columns:repeat(3,1fr)}.album-item:nth-child(1){grid-column:span 1;grid-row:span 1}
+            .album-item:nth-child(5){grid-column:span 1}
         }
         @media(max-width:768px){
             section{padding:70px 20px}.navbar{padding:0 15px}
@@ -263,6 +278,8 @@
             .gallery-item.tall,.gallery-item.wide{grid-row:span 1;grid-column:span 1}
             .factory-grid,.cert-grid,.testimonials-grid{grid-template-columns:1fr}
             .capacity-grid{grid-template-columns:repeat(2,1fr)}.values-grid{grid-template-columns:repeat(2,1fr)}
+            .album-grid{grid-template-columns:repeat(2,1fr)}.album-item:nth-child(1){grid-column:span 2;grid-row:span 1}
+            .album-item:nth-child(5){grid-column:span 2}.album-show-more{display:block}
             .footer-grid{grid-template-columns:1fr;gap:30px}.footer-bottom{justify-content:center;text-align:center}
             .about-highlights,.form-row{grid-template-columns:1fr}
             .process-timeline::before{left:25px}
@@ -284,7 +301,7 @@
 <nav class="navbar" id="navbar">
     <div class="nav-container">
         <a href="#hero" class="nav-logo">
-            <div class="nav-logo-icon">&#127807;</div>
+            <div class="nav-logo-icon"><img src="ảnh sản phẩm/logo.png" alt="Đất Tổ Star Eco Logo"></div>
             <div class="nav-logo-text">
                 <div class="brand">Đất Tổ Star Eco</div>
                 <div class="slogan" data-vi="Hợp tác xã sinh thái Đất Tổ Star Eco" data-en="Hợp tác xã sinh thái Đất Tổ Star Eco">Hợp tác xã sinh thái Đất Tổ Star Eco</div>
@@ -298,6 +315,7 @@
             <li><a href="#process" data-vi="Quy trình" data-en="Process">Quy trình</a></li>
             <li><a href="#testimonials" data-vi="Đánh giá" data-en="Reviews">Đánh giá</a></li>
             <li><a href="#certificates" data-vi="Chứng nhận" data-en="Certificates">Chứng nhận</a></li>
+            <li><a href="#album" data-vi="Album" data-en="Album">Album</a></li>
             <li><a href="#contact" class="nav-cta" data-vi="Liên hệ" data-en="Contact">Liên hệ</a></li>
             <li>
                 <div class="lang-switch">
@@ -529,6 +547,41 @@
         <div class="capacity-card"><div class="capacity-num">300K</div><h4 data-vi="Kế hoạch mở rộng" data-en="Expansion plan">Kế hoạch mở rộng</h4><p data-vi="Tăng gấp đôi khi đầu tư dây chuyền thứ 2" data-en="Doubled with 2nd production line">Tăng gấp đôi khi đầu tư dây chuyền thứ 2</p></div>
         <div class="capacity-card"><div class="capacity-num">1500</div><h4 data-vi="m&#178; nhà xưởng" data-en="m&#178; factory">m&#178; nhà xưởng</h4><p data-vi="Dây chuyền khép kín" data-en="Closed-loop production line">Dây chuyền khép kín</p></div>
         <div class="capacity-card"><div class="capacity-num">100%</div><h4 data-vi="Tự nhiên" data-en="Natural">Tự nhiên</h4><p data-vi="Nguyên liệu Phú Thọ, Tuyên Quang, Yên Bái" data-en="From Phu Tho, Tuyen Quang, Yen Bai">Nguyên liệu Phú Thọ, Tuyên Quang, Yên Bái</p></div>
+    </div>
+</section>
+
+<!-- Album -->
+<section class="album" id="album">
+    <div class="section-header reveal">
+        <div class="section-tag" data-vi="Hình ảnh" data-en="Photos">Hình ảnh</div>
+        <h2 data-vi="Album Doanh Nghiệp" data-en="Company Album">Album Doanh Nghiệp</h2>
+        <p data-vi="Hình ảnh hoạt động sản xuất và sản phẩm của Đất Tổ Star Eco" data-en="Production activities and products of Đất Tổ Star Eco">Hình ảnh hoạt động sản xuất và sản phẩm của Đất Tổ Star Eco</p>
+    </div>
+    <div class="album-grid reveal" id="albumGrid">
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224470470_00e15fea30ea3bba583ee30facfa7b20.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224479204_ea359b3a5a2881259210f97d78e57ac4.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224505984_d5eedf1a458392b67df9b36c6ecee794.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224509165_fb203c894ec6c19361cc1a0135e03991.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224539796_f0ea734d38bf9fc70fce8bc73a28744d.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224554639_7c51fe8c0431ae87a71006df49944514.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224558632_f8b176e3ad287adb0efbc804652bda96.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224561558_92ee6b1f6c03207c6d02cd61422434a7.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224570068_f1180ee341c53d6d69d1a2cfb9da7857.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224582608_4850e255334af443ea01ba35c8f5cef1.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224585656_27b25a154694031827865c4ac9949d7d.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224609170_78729bfacb4f07dfbc304a1d47b84902.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224620731_aefb29fb683275ae4ee2cc07588fdb04.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224626145_287868468eff05df92488730a2f1ae9b.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224631975_48b1a8fbaf593b0f906e95c482c45eee.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224634517_3eeced1a5b3f4a022189d9f2a388e67d.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224642893_7a7683a32ad97dba5560ed9593b1ea99.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224657421_40d07094b1487ef35b8ede01f8d5abd1.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224665482_64a8575df511e6058f24b36ba51cc17f.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224673252_8924dc2a04fff1dddd30bd805ca885a4.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+        <div class="album-item" onclick="openLightbox(this)"><img src="Album/z7642224702024_1a965f3c7277c4bdf4ffe20c414c0c7b.jpg" alt="Đất Tổ Star Eco" loading="lazy"></div>
+    </div>
+    <div class="album-show-more">
+        <button onclick="document.querySelectorAll('.album-item').forEach(i=>i.style.display='block');this.parentElement.style.display='none'" data-vi="Xem tất cả ảnh" data-en="View all photos">Xem tất cả ảnh</button>
     </div>
 </section>
 
