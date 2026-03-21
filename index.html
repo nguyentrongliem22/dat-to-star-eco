@@ -247,8 +247,6 @@
         .album-item:hover{transform:scale(1.03)}
         .album-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
         .album-item:hover img{transform:scale(1.1)}
-        .album-item:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
-        .album-item:nth-child(5){grid-column:span 2;aspect-ratio:auto}
         .album-show-more{display:none;text-align:center;margin-top:30px}
         .album-show-more button{background:linear-gradient(135deg,var(--green-main),var(--green-light));color:var(--white);border:none;padding:14px 40px;border-radius:30px;font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s}
         .album-show-more button:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(45,106,79,.3)}
@@ -261,8 +259,7 @@
             .values-grid{grid-template-columns:repeat(3,1fr)}.products-grid{grid-template-columns:repeat(3,1fr)}
             .gallery-grid{grid-template-columns:repeat(3,1fr)}.tech-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
             .cert-grid,.capacity-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}
-            .album-grid{grid-template-columns:repeat(3,1fr)}.album-item:nth-child(1){grid-column:span 1;grid-row:span 1}
-            .album-item:nth-child(5){grid-column:span 1}
+            .album-grid{grid-template-columns:repeat(3,1fr)}
         }
         @media(max-width:768px){
             section{padding:70px 20px}.navbar{padding:0 15px}
@@ -278,8 +275,7 @@
             .gallery-item.tall,.gallery-item.wide{grid-row:span 1;grid-column:span 1}
             .factory-grid,.cert-grid,.testimonials-grid{grid-template-columns:1fr}
             .capacity-grid{grid-template-columns:repeat(2,1fr)}.values-grid{grid-template-columns:repeat(2,1fr)}
-            .album-grid{grid-template-columns:repeat(2,1fr)}.album-item:nth-child(1){grid-column:span 2;grid-row:span 1}
-            .album-item:nth-child(5){grid-column:span 2}.album-show-more{display:block}
+            .album-grid{grid-template-columns:repeat(2,1fr)}.album-show-more{display:block}
             .footer-grid{grid-template-columns:1fr;gap:30px}.footer-bottom{justify-content:center;text-align:center}
             .about-highlights,.form-row{grid-template-columns:1fr}
             .process-timeline::before{left:25px}
